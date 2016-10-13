@@ -1,0 +1,1 @@
+{"connect":"SFTP","host":"medien.stura.uni-jena.de","port":"22","user":"konstantin_werner","pwd":"Kritter1","savepwd":"checked","remoteRoot":"/srv/www/wp-multiside-data/wp-content/themes/cwmp","privateKeyFile":"/Users/konstantinwerner/.ssh/konstantinwerner_rsa"}

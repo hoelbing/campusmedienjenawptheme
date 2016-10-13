@@ -1,0 +1,101 @@
+/**********/
+/* COLORS */
+/**********/
+/**********/
+/* CUSTOM */
+/**********/
+/***********************/
+/* BOOTSTRAP VARIABLES */
+/***********************/
+/* Navbar */
+aside.widget_sk {
+  border: 1px solid #e6e6e6;
+  background: #ffffff;
+}
+aside.widget_sk .sk-table tr.sk-for-nai {
+  display: none;
+}
+aside.widget_sk .sk-table .sk-box-text {
+  font-size: 13px;
+}
+aside.widget_sk .sk-table textarea {
+  width: 100%;
+  border: 1px solid #cccccc;
+}
+aside.widget_sk .sk-table input[type="button"] {
+  background: #ffffff;
+  outline: 0;
+  border: 1px solid #cccccc;
+}
+aside.widget_sk > div ul {
+  padding: 14px 0 0 0 !important;
+  list-style: none;
+  margin: 0;
+}
+aside.widget_sk > div ul li.throbber-img-off {
+  display: none;
+}
+aside.widget_sk > div ul li.sk-comment:not(:last-of-type) {
+  margin-bottom: 21px;
+}
+aside.widget_sk > div ul li.sk-comment .sk-userdata-user,
+aside.widget_sk > div ul li.sk-comment .sk-userdata-admin {
+  font-size: 13px;
+  padding-bottom: 6px;
+}
+aside.widget_sk > div ul li.sk-comment .sk-userdata-user strong,
+aside.widget_sk > div ul li.sk-comment .sk-userdata-admin strong {
+  display: inline-block;
+  width: 50%;
+  line-height: 1.1em;
+}
+aside.widget_sk > div ul li.sk-comment .sk-userdata-user .sk-little,
+aside.widget_sk > div ul li.sk-comment .sk-userdata-admin .sk-little {
+  float: right;
+  position: relative;
+  margin-top: -14px;
+  line-height: 1em;
+  text-align: right;
+  color: #cccccc;
+  z-index: 1;
+}
+aside.widget_sk > div ul li.sk-comment .sk-userdata-user {
+  min-height: 23px !important;
+}
+aside.widget_sk > div ul li.sk-comment .sk-userdata-admin {
+  min-height: 38px !important;
+}
+aside.widget_sk > div ul li.sk-comment .sk-widgettext {
+  -webkit-border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 5px;
+  -moz-background-clip: padding;
+  border-radius: 5px;
+  background-clip: padding-box;
+  background: #e6e6e6;
+  padding: 8px 10px;
+  position: relative;
+  line-height: 1.1em;
+}
+aside.widget_sk > div ul li.sk-comment .sk-widgettext::after {
+  content: "";
+  top: -5px;
+  right: 88%;
+  bottom: auto;
+  left: auto;
+  border-width: 0 5px 5px;
+  border-color: #e6e6e6 transparent;
+  position: absolute;
+  border-style: solid;
+  display: block;
+  width: 0;
+}
+aside.widget_sk > div .sk-page-other,
+aside.widget_sk > div .sk-page-actual {
+  padding: 0px 1px;
+  cursor: pointer;
+  font-weight: bold;
+}
+aside.widget_sk > div .sk-page-actual {
+  color: #eec43f;
+}

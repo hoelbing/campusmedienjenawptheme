@@ -1,0 +1,113 @@
+// out: ../schreikasten.css
+
+@import 'lesshat.less';
+@import 'variables.less';
+
+#sk-2 {
+	border: 1px solid @gray-lighter;
+	background: @white;
+
+	.sk-table {
+		tr.sk-for-nai {
+			display: none;
+		}
+		.sk-box-text {
+			font-size: @font-size-small;
+		}
+
+		textarea {
+			width: 100%;
+			border: 1px solid @gray-light;
+		}
+
+		input[type="button"] {
+			background: @white;
+			outline: 0;
+			border: 1px solid @gray-light;
+		}
+	}
+
+	> div {
+		ul {
+			padding: @space-md 0 0 0 !important;
+			list-style: none;
+			margin: 0;
+
+			li.throbber-img-off {
+				display: none;
+			}
+
+			li.sk-comment {
+
+				&:not(:last-of-type) {
+					margin-bottom: @space-md * 1.5;
+				}
+
+				.sk-userdata-user, .sk-userdata-admin {
+					font-size: @font-size-small;
+					padding-bottom: 6px;
+
+					strong {
+						display: inline-block;
+						width: 50%;
+						line-height: 1.1em;
+					}
+
+					.sk-little {
+						float: right;
+						position: relative;
+						margin-top: -14px;
+						line-height: 1em;
+						text-align: right;
+						color: @gray-light;
+						z-index: 1;
+					}
+				}
+
+				.sk-userdata-user {
+					min-height: 23px !important;
+				}
+
+				.sk-userdata-admin {
+					min-height: 38px !important;
+				}
+
+
+
+				.sk-widgettext {
+					.border-radius(5px);
+					background: @gray-lighter;
+					padding: @space-sm+1px @space-sm+3px;
+					position: relative;
+					line-height: 1.1em;
+
+					&::after {
+						content: "";
+						top: -5px;
+						right: 88%;
+						bottom: auto;
+						left: auto;
+						border-width: 0 5px 5px;
+						border-color: @gray-lighter transparent;
+						position: absolute;
+						border-style: solid;
+						display: block;
+						width: 0;
+					}
+				}
+			}
+		}
+
+		.sk-page-other,
+		.sk-page-actual {
+			padding: 0px 1px;
+			cursor: pointer;
+			font-weight: bold;
+		}
+
+		.sk-page-actual {
+			color: @campusradiogelb;
+		}
+	}
+}
+
