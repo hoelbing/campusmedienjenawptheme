@@ -71,7 +71,7 @@
 			</div>
 
 			<div class="meta-categories">
-				<span><?php the_category(',') ?></span>
+				<span><?php the_category(', ') ?></span>
 			</div>
 
 		</aside>
