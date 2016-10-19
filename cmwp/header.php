@@ -113,18 +113,20 @@
 					}
 
 					$preMenuLinkBlogImage = '';
+					/*
 					switch_to_blog($blogId);
 						debug_to_console(get_theme_mod( 'themeslug_logo' ));
 						if (get_theme_mod( 'themeslug_logo')) {
 							$preMenuLinkBlogImage = '<img src="' . esc_url( get_theme_mod( 'themeslug_logo' ) ) . '" class="blog-image" alt="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">';
 						}
 					restore_current_blog();
-
+					*/
+					
 					$title = $menu_item->title;
 					$url = $menu_item->url;
 					$activeClass = $currentBlogID === $blogId ? ' active' : ''; // use blog id
 					
-					$menu_list .= '<li class="blog-' . $blogSlug . $activeClass . '"><a href="' . $url . '">' . $preMenuLinkBlogImage  . $title . '</a></li>';
+					$menu_list .= '<li class="blog-' . $blogSlug . $activeClass . '"><a href="' . $url . '">' /*. $preMenuLinkBlogImage */ . $title . '</a></li>';
 				}
 				$menu_list .= '</ul>';
 			} else {
@@ -133,45 +135,50 @@
 
 			echo $menu_list;
 				
-			/*wp_nav_menu( array('container' => false,
-										 'theme_location' => 'primary',
-										 'menu_class' => 'nav navbar-nav',
-									     'depth' => 1,
-										 'link_before' => $preMenuLinkBlogImage) ); */
 			?>
-
-               <?php /*
-                    foreach ($blogArray as $blog) {
-                        $blogID = $blog['blog_id'];
-
-						$currentClass = ($blogID == $currentBlogID) ? 'current' : '' ;
-                        if ($blogID != 1) {
-                            echo '<li><a class="' . $currentClass . '" href="' . get_blog_details($blogID) -> siteurl . '">' . get_blog_details($blogID) -> blogname . '</a></li>';
-                        } else {
-							echo '<li><a class="' . $currentClass . ' visible-xs" href="' . get_blog_details($blogID) -> siteurl . '">' . get_blog_details($blogID) -> blogname . '</a></li>';
-						}
-                    }
-                */
-		?>
-        <section><!--/.navbar-collapse -->
+        </section><!--/.navbar-collapse -->
     </div>
 </nav>
 
 
-<!-- LOWER NAVBAR -->
-<nav class="navbar navbar-default navbar-lower hidden-xs" role="navigation">
-	<div class="container">
-		<div class="collapse navbar-collapse collapse-buttons">
-			<section class="navbar-header">
-				<?php wp_nav_menu( array('container' => false,
-										 'theme_location' => 'secondary',
-										 'menu_class' => 'nav navbar-nav') ); ?>
-			</section>
+	<!-- LOWER NAVBAR -->
+	<nav class="navbar navbar-default navbar-lower hidden-xs"
+		role="navigation">
+		<div class="container">
+			<div class="collapse navbar-collapse collapse-buttons">
+				<section class="navbar-header">
+				<div class="row">
+					<div class="pull-left">
+				<?php
+				wp_nav_menu ( array (
+						'container' => false,
+						'theme_location' => 'secondary',
+						'menu_class' => 'nav navbar-nav' 
+				) );
+				?>
+					</div>
+					<div class="pull-right">
+						<form action="<?php echo home_url('/'); ?>" method="get" class="form-inline">
+							<!--		    <fieldset> -->
+							<div class="input-group search-form">
+								<input type="search" name="s" id="search" placeholder="Search"
+									value="<?php the_search_query(); ?>" class="form-control"
+									title="Search" /> <span class="input-group-btn">
+									<button type="submit" id="search-btn" class="btn btn-default">
+										<span class="glyphicon glyphicon-search gi-1-4x"></span>
+									</button>
+								</span>
+							</div>
+							<!--		    </fieldset> -->
+						</form>
+					</div>
+				</div>
+				</section>
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
-<nav class="navbar-mobile visible-xs" role="navigation">
+	<nav class="navbar-mobile visible-xs" role="navigation">
 	<?php wp_nav_menu( array(
 		'container' => false,
 		'theme_location' => 'secondary',
