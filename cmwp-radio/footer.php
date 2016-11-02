@@ -16,8 +16,13 @@
 							<li><div class="note">Ernst-Abbe-Hochschule Jena</div></li>
 							<li><div class="note">Carl-Zeiss-Promenade 2</div></li>
 							<li><div class="zip">07745 Jena</div></li>
-							<li><div class="tel"><i class="glyphicon glyphicon-earphone"> </i> +49 3641 205-796</div></li>
-							<li><div class="email"><i class="glyphicon glyphicon-envelope"> </i> redaktion@campusradio-jena.de</div></li>
+							<li><div class="tel">
+									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+433641205796"> +43 (0)3641 205-796</a>
+								</div></li>
+							<li><div class="email">
+									<i class="glyphicon glyphicon-envelope"> </i>
+									redaktion@campusradio-jena.de
+								</div></li>
 						</ul>
 					</address>
 				</div>

@@ -16,9 +16,16 @@
 							<li><div class="note">FSU Jena</div></li>
 							<li><div class="note">Fürstengraben 1</div></li>
 							<li><div class="zip">07743 Jena</div></li>
-							<li><div class="tel"><i class="glyphicon glyphicon-earphone"> </i> +49 3641 9-30991</div></li>
-							<li><div class="tel"><i class="glyphicon glyphicon-earphone"> </i> +49 3641 9-30997</div></li>
-							<li><div class="email"><i class="glyphicon glyphicon-envelope"> </i> redaktion@akruetzel.de</div></li>
+							<li><div class="tel">
+									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+433641930991"> +43 (0)3641 9-30991</a>
+								</div></li>
+							<li><div class="fax">
+									<i class="glyphicon glyphicon-briefcase"> </i><a href="tel:+433641930997"> +43 (0)3641 9-30997</a>
+								</div></li>
+							<li><div class="email">
+									<i class="glyphicon glyphicon-envelope"> </i>
+									redaktion@akruetzel.de
+								</div></li>
 						</ul>
 					</address>
 				</div>

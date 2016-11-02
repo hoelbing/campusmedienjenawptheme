@@ -36,9 +36,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/style.min.css">
 	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">  -->
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/font-awesome.min.css">
+	
 	<?php wp_head(); ?>
 	<?php
 		$bodyBlogClass = 'blog-' . $currentBlogID;
@@ -147,7 +149,7 @@
 		<div class="container">
 			<div class="collapse navbar-collapse collapse-buttons">
 				<section class="navbar-header">
-				<div class="row">
+				<div class="container">
 					<div class="pull-left">
 				<?php
 				wp_nav_menu ( array (
@@ -158,9 +160,9 @@
 				?>
 					</div>
 					<div class="pull-right">
-						<form action="<?php echo home_url('/'); ?>" method="get" class="form-inline">
+						<form action="<?php echo home_url('/'); ?>" method="get" class="form-inline form-search">
 							<!--		    <fieldset> -->
-							<div class="input-group search-form">
+							<div class="input-group">
 								<input type="search" name="s" id="search" placeholder="Search"
 									value="<?php the_search_query(); ?>" class="form-control"
 									title="Search" /> <span class="input-group-btn">

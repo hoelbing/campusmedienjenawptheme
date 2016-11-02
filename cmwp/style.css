@@ -277,6 +277,7 @@ th {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .glyphicon-asterisk:before {
   content: "\2a";
 }
@@ -307,7 +308,7 @@ th {
 }
 .glyphicon-search:before {
   content: "\e003";
-}
+} 
 .glyphicon-heart:before {
   content: "\e005";
 }
@@ -482,7 +483,7 @@ th {
 .glyphicon-adjust:before {
   content: "\e063";
 }
-.glyphicon-tint:before {
+.glyphicon-tint:before {/*
   content: "\e064";
 }
 .glyphicon-edit:before {
@@ -648,7 +649,7 @@ th {
   content: "\e121";
 }
 .glyphicon-bullhorn:before {
-  content: "\e122";
+  content: "\e122";*/
 }
 .glyphicon-bell:before {
   content: "\e123";
@@ -878,6 +879,7 @@ th {
 .glyphicon-tree-deciduous:before {
   content: "\e200";
 }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -7243,10 +7245,10 @@ button .badge {
   position: relative;
 }
 .post.blog-2 .blog-logo {
-  background: #eec43f;
+  background: #09607e;
 }
 .post.blog-2 .more-link {
-  color: #eec43f;
+  color: #09607e;
 }
 .post.blog-3 .blog-logo {
   background: #09607e;
@@ -7260,6 +7262,13 @@ button .badge {
 .post.blog-4 .more-link {
   color: #d44e2c;
 }
+.post.blog-5 .blog-logo {
+  background: #eec43f;
+}
+.post.blog-5 .more-link {
+  color: #eec43f;
+}
+
 .post .blog-logo {
   background: #ffffff;
   display: inline-block;
