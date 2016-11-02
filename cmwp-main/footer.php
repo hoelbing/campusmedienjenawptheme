@@ -88,11 +88,13 @@
 			<div class="col-sm-12 row">
 				<div class="col-sm-4"></div>
 				<div class="col-xs-12 col-sm-6 h5 center-block">
-					<a href="<?php bloginfo('url'); ?>/?page_id=31" title="Kontakt">Kontakt</a>
+				<!-- 	<a href="<?php bloginfo('url'); ?>/?page_id=31" title="Kontakt">Kontakt</a>
 					| <a href="<?php bloginfo('url'); ?>/?page_id=522"
 						title="Impressum">Impressum</a> | <a
 						href="<?php bloginfo('url'); ?>/?page_id=12857"
-						title="Datenschutz">Datenschutz</a> | <a
+						title="Datenschutz">Datenschutz</a> | 
+						 -->
+						<a
 						href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
 				</div>
 				<div class="col-sm-2"></div>
