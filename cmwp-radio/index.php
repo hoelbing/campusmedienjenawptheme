@@ -1,16 +1,51 @@
-<?php get_header(); ?>
+<?php 
+get_header(); 
+?>
+
+<?php
+	$blog_id_origin = get_current_blog_id(); //(get_post_meta(get_the_ID(), 'origin_blog_id', true));
+	$blog_url = get_blog_details($blog_id_origin) -> siteurl;
+	$blog_name = get_blog_details($blog_id_origin) -> blogname;
+	$shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrützel', '4' => 'Campus.tv');
+?>
+
+
+
 	<div class="container container-main">
 		<div class="row">
 			<div class="" id="global-main-content">
 				<div class="content">
 				
-					<div class="border-bottom-grey hidden-xs">
-						<a href="<?php home_url(); ?>/interaktiv/webplayer/">
-							<img class="header-image" alt="CampusrRadio-Jena Logo" title="CampusrRadio-Jena Logo" src="https://www.campusradio-jena.de/wp-content/themes/CampusRadioJenaWPTemplate/images/livestream_icon_eule.png">
-						</a>
-					</div>
+					<!-- player symbol anzeigen -->
+					<section class="main timeline">
+						<article class="post blog-<?php echo $blog_id_origin ?>" id="post-<?php the_ID(); ?>">
+					        <a class="blog-logo blog-<?php echo $blog_id_origin ?>" href="<?php echo $blog_url ?>">
+					<!--			<img src="<?php echo bloginfo('template_directory'); ?>/img/logo_icon/logo_blog_<?php echo $blog_id_origin; ?>.png" alt=""/>-->
+								<?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
+					<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
+								<?php endif; ?>
+							</a>
 					
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+							<section class="post-top">
+					
+								<section class="post-content">
+											<div class="border-bottom-grey hidden-xs">
+												<a href="<?php home_url(); ?>/interaktiv/webplayer/"> <img
+													class="header-image" alt="CampusRadio-Jena Logo"
+													title="CampusRadio-Jena Logo"
+													src="https://www.campusradio-jena.de/wp-content/themes/CampusRadioJenaWPTemplate/images/livestream_icon_eule.png">
+												</a>
+											</div>
+					
+								</section>
+							</section>
+					
+					    
+						</article><!-- /.post-->
+					</section><!-- /.main-->
+					
+
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', get_post_format() ); ?>
 					<?php endwhile; else: ?>
   					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

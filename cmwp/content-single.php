@@ -29,6 +29,7 @@
 			<div class="meta-author">
 				<p class="theauthor">
 					<?php the_author() ?>
+					<!-- Postaufrufe: <?php echo Post_Views::get_post_views(get_the_ID()); ?> -->
 				</p>
 			</div>
 

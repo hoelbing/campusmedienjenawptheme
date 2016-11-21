@@ -4,13 +4,6 @@
  */
 ?>
 
-<?php
-	$blog_id_origin = get_current_blog_id(); //(get_post_meta(get_the_ID(), 'origin_blog_id', true));
-	$blog_url = get_blog_details($blog_id_origin) -> siteurl;
-	$blog_name = get_blog_details($blog_id_origin) -> blogname;
-	$shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrützel', '4' => 'Campus.tv');
-?>
-
 <section class="main timeline">
 	<article class="post blog-<?php echo $blog_id_origin ?>" id="post-<?php the_ID(); ?>">
         <a class="blog-logo blog-<?php echo $blog_id_origin ?>" href="<?php echo $blog_url ?>">

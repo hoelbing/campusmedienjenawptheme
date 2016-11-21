@@ -87,7 +87,7 @@
 		(function() {
 			var u = "//stats.stura.uni-jena.de/";
 			_paq.push(['setTrackerUrl', u + 'piwik.php']);
-			_paq.push(['setSiteId', 12]);
+			_paq.push(['setSiteId', 6]);
 			var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
 			g.type = 'text/javascript';
 			g.async = true;
