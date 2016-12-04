@@ -2,13 +2,7 @@
 /**
  * The default template for displaying content.
  */
-?>
 
-<?php
-	$blog_id_origin = (get_post_meta(get_the_ID(), 'origin_blog_id', true));
-	$blog_url = get_blog_details($blog_id_origin) -> siteurl;
-	$blog_name = get_blog_details($blog_id_origin) -> blogname;
-	$shortnames = array('1' => 'Campusmedien', '2' => 'Campusradio', '3' => 'Akrützel', '4' => 'Campus.tv');
 ?>
 
 <section class="main main-post">

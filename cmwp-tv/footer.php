@@ -17,7 +17,7 @@
 							<li><div class="note">Carl-Zeiss-Promenade 10</div></li>
 							<li><div class="zip">07745 Jena</div></li>
 							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+433641930988"> +43 (0)3641 9-30988</a>
+									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641930988"> +49 (0)3641 9-30988</a>
 								</div></li>
 							<li><div class="email">
 									<i class="glyphicon glyphicon-envelope"> </i>

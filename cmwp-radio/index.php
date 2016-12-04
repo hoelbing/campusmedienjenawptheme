@@ -1,5 +1,5 @@
-<?php 
-get_header(); 
+<?php
+get_header();
 ?>
 
 <?php
@@ -15,7 +15,7 @@ get_header();
 		<div class="row">
 			<div class="" id="global-main-content">
 				<div class="content">
-				
+
 					<!-- player symbol anzeigen -->
 					<section class="main timeline">
 						<article class="post blog-<?php echo $blog_id_origin ?>" id="post-<?php the_ID(); ?>">
@@ -25,35 +25,60 @@ get_header();
 					<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
 								<?php endif; ?>
 							</a>
-					
+
 							<section class="post-top">
-					
+
 								<section class="post-content">
 											<div class="border-bottom-grey hidden-xs">
 												<a href="<?php home_url(); ?>/interaktiv/webplayer/"> <img
 													class="header-image" alt="CampusRadio-Jena Logo"
 													title="CampusRadio-Jena Logo"
-													src="https://www.campusradio-jena.de/wp-content/themes/CampusRadioJenaWPTemplate/images/livestream_icon_eule.png">
+													src="<?php echo bloginfo('template_directory'); ?>/images/livestream_icon_eule.png">
 												</a>
 											</div>
-					
+
 								</section>
 							</section>
-					
-					    
+
+
 						</article><!-- /.post-->
 					</section><!-- /.main-->
-					
 
-				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+				<?php
+/*
+                                $page = (get_query_var('page')) ? get_query_var('page') : 1;
+
+                                // ausschliessen die Kategorie 'allgemein' anzeigen
+                                query_posts(array ( 'category_name' => 'allgemein','paged' => get_query_var( 'paged' )));
+                                global $more;
+                                $more = 0;
+*/
+if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', get_post_format() ); ?>
 					<?php endwhile; else: ?>
   					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
- 					<?php endif; ?>
-					<div id="nav-post"><?php posts_nav_link('  ', __('<button class="button">« Neuere Beiträge</button>'), __('<button class="button">Ältere Beiträge »</button>')); ?></div>
-				</div> <!-- /.content -->
+					<?php endif; ?>
+			</div>
+			<!-- /.content -->
 
-			</div> <!-- /.global-main-content -->
+			<?php
+			//das WP Plugin 'wp_pagenavi' einfuegen (Seitennavigation)
+			if (function_exists('wp_pagenavi'))
+			{
+							echo '<div id="pagenavi" class="col-xs-12">';
+							wp_pagenavi();
+							echo '</div><!-- END pagenavi-->';
+			}
+			else {
+				# code...
+				?>
+					<div id="nav-post"><?php posts_nav_link('  ', __('<button class="button">« Neuere Beiträge</button>'), __('<button class="button">Ältere Beiträge »</button>')); ?></div>
+				<?php
+			}
+		?>
+		</div>
+		<!-- /.global-main-content -->
 			<div class="" id="global-sidebar">
 				<?php get_sidebar(); ?>
 			</div><!-- /.global-sidebar -->

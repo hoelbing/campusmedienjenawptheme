@@ -1,12 +1,8 @@
 <?php
-    $currentBlogID = get_current_blog_id();
-    $blogArray = wp_get_sites();
-
-
 	function debug_to_console( $data ) {
-		
+
 		$output = '';
-		
+
 		if ( is_array( $data ) ) {
 			$output .= "<script>console.warn( 'Debug Objects with Array.' ); console.log( '" . implode( ',', $data) . "' );</script>";
 		} else if ( is_object( $data ) ) {
@@ -22,7 +18,7 @@
 		} else {
 			$output .= "<script>console.log( 'Debug Objects: {$data}' );</script>";
 		}
-		
+
 		echo $output;
 	}
 ?>
@@ -31,18 +27,35 @@
 <html>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<title><?php wp_title('-', true, 'left'); ?></title>
+	<!-- <title><?php wp_title('-', true, 'left'); ?></title> -->
+	<title><?php bloginfo( 'name' ); wp_title(); ?></title>
 	<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/style.min.css">
-	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
-<!-- 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">  -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/font-awesome.min.css">
-	
+
+	<style type="text/css">
+		/* source-sans-pro-regular - latin */
+		@font-face {
+		  font-family: 'Source Sans Pro';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.eot'); /* IE9 Compat Modes */
+		  src: local('Source Sans Pro'), local('SourceSansPro-Regular'),
+		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.woff') format('woff'), /* Modern Browsers */
+		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+		}
+	</style>
+
 	<?php wp_head(); ?>
 	<?php
+    $currentBlogID = get_current_blog_id();
+    $blogArray = wp_get_sites();
 		$bodyBlogClass = 'blog-' . $currentBlogID;
 	?>
 </head>
@@ -76,7 +89,7 @@
 
         <section id="navbar" class="collapse navbar-collapse">
 
-		<?php 
+		<?php
 			/*
 				$preMenuLinkBlogImage = '';
 				if (get_theme_mod( 'themeslug_logo')) {
@@ -86,14 +99,14 @@
 			$blogMenuItems = wp_get_nav_menu_items('primary');
 
 			$menu_name = 'primary';
- 
+
 			if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
 				$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-			
+
 				$menu_items = wp_get_nav_menu_items($menu->term_id);
-			
+
 				$menu_list = '<ul id="menu-' . $menu_name . '" class="nav navbar-nav">';
-			
+
 				foreach ( (array) $menu_items as $key => $menu_item ) {
 					// check for blog
 					$blogId = null;
@@ -103,12 +116,12 @@
 						$blogId = 5;
 						$blogSlug = 'cr';
 					}
-					
+
 					if (strpos($menu_item->url, 'campustv-jena.de')) {
 						$blogId = 4;
 						$blogSlug = 'ctv';
 					}
-					
+
 					if (strpos($menu_item->url, 'akruetzel.de')) {
 						$blogId = 2;
 						$blogSlug = 'ak';
@@ -123,11 +136,11 @@
 						}
 					restore_current_blog();
 					*/
-					
+
 					$title = $menu_item->title;
 					$url = $menu_item->url;
 					$activeClass = $currentBlogID === $blogId ? ' active' : ''; // use blog id
-					
+
 					$menu_list .= '<li class="blog-' . $blogSlug . $activeClass . '"><a href="' . $url . '">' /*. $preMenuLinkBlogImage */ . $title . '</a></li>';
 				}
 				$menu_list .= '</ul>';
@@ -136,7 +149,7 @@
 			}
 
 			echo $menu_list;
-				
+
 			?>
         </section><!--/.navbar-collapse -->
     </div>
@@ -153,9 +166,19 @@
 					<div class="pull-left">
 				<?php
 				wp_nav_menu ( array (
-						'container' => false,
-						'theme_location' => 'secondary',
-						'menu_class' => 'nav navbar-nav' 
+          //'menu'              => 'primary',
+          'theme_location'    => 'secondary',
+          'depth'             => 2,
+          'container'         => 'div',
+          'container_class'   => 'collapse navbar-collapse',
+          'container_id'      => 'bs-example-navbar-collapse-1',
+          'menu_class'        => 'nav navbar-nav',
+          'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+          'walker'            => new wp_bootstrap_navwalker()//)
+
+						//'container' => false,
+						//'theme_location' => 'secondary',
+						//'menu_class' => 'nav navbar-nav'
 				) );
 				?>
 					</div>
@@ -186,6 +209,6 @@
 		'theme_location' => 'secondary',
 		'menu_class' => 'nav nav-pills',
 		'depth' => 1
-		) ); 
+		) );
 	?>
 </nav>

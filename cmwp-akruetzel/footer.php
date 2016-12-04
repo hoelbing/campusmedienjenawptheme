@@ -11,16 +11,18 @@
 				<div class="col-xs-12 col-sm-4">
 					<!-- <div class="h4">Anschrift</div> -->
 					<address>
-						<h1><div class="h4 text-color-grey"><?php bloginfo('name'); ?></div></h1>
+						<h1>
+							<div class="h4 text-color-grey"><?php bloginfo('name'); ?></div>
+						</h1>
 						<ul class="list-unstyled h5">
 							<li><div class="note">FSU Jena</div></li>
 							<li><div class="note">Fürstengraben 1</div></li>
 							<li><div class="zip">07743 Jena</div></li>
 							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+433641930991"> +43 (0)3641 9-30991</a>
+									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641930991"> +49 (0)3641 9-30991</a>
 								</div></li>
 							<li><div class="fax">
-									<i class="glyphicon glyphicon-briefcase"> </i><a href="tel:+433641930997"> +43 (0)3641 9-30997</a>
+									<i class="glyphicon glyphicon-briefcase"> </i><a href="tel:+493641930997"> +49 (0)3641 9-30997</a>
 								</div></li>
 							<li><div class="email">
 									<i class="glyphicon glyphicon-envelope"> </i>

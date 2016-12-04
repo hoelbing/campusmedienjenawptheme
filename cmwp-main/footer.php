@@ -17,7 +17,7 @@
 							<li><div class="note">Carl-Zeiss-Promenade 2</div></li>
 							<li><div class="zip">07745 Jena</div></li>
 							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+433641205796"> +43 (0)3641 205-796</a>
+									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641205796"> +49 (0)3641 205-796</a>
 								</div></li>
 							<li><div class="email">
 									<i class="glyphicon glyphicon-envelope"> </i>
@@ -37,7 +37,7 @@
 							<li><div class="note">Carl-Zeiss-Promenade 10</div></li>
 							<li><div class="zip">07745 Jena</div></li>
 							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+433641930988"> +43 (0)3641 9-30988</a>
+									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641930988"> +49 (0)3641 9-30988</a>
 								</div></li>
 							<li><div class="email">
 									<i class="glyphicon glyphicon-envelope"> </i>
@@ -57,10 +57,10 @@
 							<li><div class="note">Fürstengraben 1</div></li>
 							<li><div class="zip">07743 Jena</div></li>
 							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+433641930991"> +43 (0)3641 9-30991</a>
+									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641930991"> +49 (0)3641 9-30991</a>
 								</div></li>
 							<li><div class="fax">
-									<i class="glyphicon glyphicon-briefcase"> </i><a href="tel:+433641930997"> +43 (0)3641 9-30997</a>
+									<i class="glyphicon glyphicon-briefcase"> </i><a href="tel:+493641930997"> +49 (0)3641 9-30997</a>
 								</div></li>
 							<li><div class="email">
 									<i class="glyphicon glyphicon-envelope"> </i>

@@ -13,33 +13,24 @@
 					<address>
 						<h1><div class="h4 text-color-grey"><?php bloginfo('name'); ?></div></h1>
 						<ul class="list-unstyled h5">
-							<li><div class="note">Ernst-Abbe-Hochschule Jena</div></li>
-							<li><div class="note">Carl-Zeiss-Promenade 2</div></li>
-							<li><div class="zip">07745 Jena</div></li>
+							<li><div class="note">FSU Jena</div></li>
+							<li><div class="note">Fürstengraben 1</div></li>
+							<li><div class="zip">07743 Jena</div></li>
 							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641205796"> +49 (0)3641 205-796</a>
+									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+433641930991"> +43 (0)3641 9-30991</a>
+								</div></li>
+							<li><div class="fax">
+									<i class="glyphicon glyphicon-briefcase"> </i><a href="tel:+433641930997"> +43 (0)3641 9-30997</a>
 								</div></li>
 							<li><div class="email">
 									<i class="glyphicon glyphicon-envelope"> </i>
-									redaktion@campusradio-jena.de
+									redaktion@akruetzel.de
 								</div></li>
 						</ul>
 					</address>
 				</div>
 				
-				<div class="col-xs-12 col-sm-4">
-					<h3><div class="h4 text-color-grey">Freunde und F&ouml;rderer</div></h3>
-					<ul class="list-unstyled h5 text-decoration-none">
-						<li></li>
-						<li><a href="http://stura.eah-jena.de/" target="_blank" title="EAH-Stura">EAH-Stura</a></li>
-						<li><a href="http://www.stura.uni-jena.de/" target="_blank" title="FSU-Stura">UNI-Stura</a></li>
-						<li><a href="http://www.radio-okj.de/" target="_blank" title="Radio OKJ">Radio OKJ</a></li>
-						<li><a href="http://www.eah-jena.de/" target="_blank" title="EAH-Jena">EAH Jena</a></li>
-						<li><a href="https://www.fsr-kowi.de/" target="_blank" title="FSR KoWi Jena">FSR KoWi Jena</a></li>
-					</ul>
-				</div>
-				
-				<div class="col-sm-2"> </div>
+				<div class="col-sm-6"> </div>
 
 			</div>
 
@@ -56,9 +47,9 @@
 			<div class="col-sm-12 row">
 				<div class="col-sm-4"> </div>
 				<div class="col-xs-12 col-sm-6 h5 center-block">
-					<a href="<?php bloginfo('url'); ?>/?page_id=31" title="Kontakt">Kontakt</a> |
-					<a href="<?php bloginfo('url'); ?>/?page_id=522" title="Impressum">Impressum</a> | 
-					<a href="<?php bloginfo('url'); ?>/?page_id=12857" title="Datenschutz">Datenschutz</a> | 
+					<a href="<?php bloginfo('url'); ?>/?page_id=18" title="Kontakt">Kontakt</a> |
+					<a href="<?php bloginfo('url'); ?>/?page_id=3649" title="Impressum">Impressum</a> | 
+					<a href="<?php bloginfo('url'); ?>/?page_id=3649" title="Datenschutz">Datenschutz</a> | 
 					<a href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
 				</div>
 				<div class="col-sm-2"> </div>
@@ -87,7 +78,7 @@
 		(function() {
 			var u = "//stats.stura.uni-jena.de/";
 			_paq.push(['setTrackerUrl', u + 'piwik.php']);
-			_paq.push(['setSiteId', 12]);
+			_paq.push(['setSiteId', 13]);
 			var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
 			g.type = 'text/javascript';
 			g.async = true;

@@ -4,6 +4,9 @@
 @ini_set( 'post_max_size', '50M');
 @ini_set( 'max_execution_time', '300' );
 
+// Register Custom Navigation Walker
+require_once('wp_bootstrap_navwalker.php');
+
 /* Custom-Logo für Login-Seite */
 function my_custom_login_logo() {
 	echo '<style type="text/css"> h1 a { background-image:url('.get_bloginfo('template_directory').'/img/cm_logo_80px.png) !important; background-size: 80px 107px !important; height: 107px !important; } </style>';
@@ -30,6 +33,24 @@ function themeslug_theme_customizer( $wp_customize ) {
 		'section'  => 'themeslug_theme_section',
 		'settings' => 'themeslug_logo',
 	) ) );
+
+	//customize the PageNavi HTML before it is output
+	function ik_pagination($html) {
+	$out = '';
+	//wrap a's and span's in li's
+	$out = str_replace("<div","",$html);
+	$out = str_replace("class='wp-pagenavi'>","",$out);
+	$out = str_replace("<a","<li><a",$out);
+	$out = str_replace("</a>","</a></li>",$out);
+	$out = str_replace("<span","<li><span",$out);
+	$out = str_replace("</span>","</span></li>",$out);
+	$out = str_replace("</div>","",$out);
+			$out = str_replace("<span class='current'","<li class='active'><span",$out);
+
+	return '<ul class="pagination pagination-centered">
+					'.$out.'</ul>
+			';
+}
 
 	// Brand color
 	$wp_customize->add_setting( 'themeslug_accentcolor' );
@@ -70,8 +91,8 @@ add_image_size('cinema-thumbnail', 380);
 
 /* Infinite Scroll */
 /*add_theme_support( 'infinite-scroll', array(
-    'container' => 'content',         
-    'footer' => 'page',       
+    'container' => 'content',
+    'footer' => 'page',
 ) );
 */
 
