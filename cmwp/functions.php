@@ -9,7 +9,7 @@ require_once('wp_bootstrap_navwalker.php');
 
 /* Custom-Logo für Login-Seite */
 function my_custom_login_logo() {
-	echo '<style type="text/css"> h1 a { background-image:url('.get_bloginfo('template_directory').'/img/cm_logo_80px.png) !important; background-size: 80px 107px !important; height: 107px !important; } </style>';
+	//echo '<style type="text/css"> h1 a { background-image:url('.get_bloginfo('template_directory').'/img/cm_logo_80px.png) !important; background-size: 80px 107px !important; height: 107px !important; } </style>';
 }
 add_action('login_head', 'my_custom_login_logo');
 
@@ -188,70 +188,7 @@ function cmwp_widgets_init() {
 }
 add_action( 'widgets_init', 'cmwp_widgets_init' );
 
-function init_widget_schnellstart($args) {
-	extract($args);
-	echo $before_widget;
-	//echo $before_title . __('Schnellstart') . $after_title;
-	echo '<div class="schnellstart-link-wrap"><a class="schnellstart-link blog-2" href="' . '"><img src="' . get_bloginfo('template_directory') . '/img/schnellstart/headphones@2x.png" alt=""/></a>';
-	echo '<a class="schnellstart-link blog-3" href="' . '"><img src="' . get_bloginfo('template_directory') . '/img/schnellstart/a@2x.png" alt=""/></a>';
-	echo '<a class="schnellstart-link blog-4" href="' . '"><img src="' . get_bloginfo('template_directory') . '/img/schnellstart/tv@2x.png" alt=""/></a></div>';
-	echo $after_widget;
-}
 
-// register the custom widgets
-$my_class = array('classname' => 'schnellstart');
-wp_register_sidebar_widget('widget_schnellstart', __('Schnellstart'), 'init_widget_schnellstart', $my_class);
-
-function init_widget_latestissue($args) {
-	extract($args);
-	echo $before_widget;
-	echo $before_title . __('Das aktuelle Akrützel') . $after_title;
-
-//	echo '<p>Hier kommt die Ausgabe hin</p>';
-//	echo '<img src="http://placehold.it/200x270" alt="Placeholder" class="img-responsive" />';
-
-	$pq = new WP_Query(array(
-		'post_type' 	=> 'ausgabe',
-		//'showposts' 	=> '1',
-	  	'meta_key'		=> 'aktuelle_ausgabe',
-		'meta_value'	=> 1));
-
-	if( $pq->have_posts() ) : ?>
-	<section class="latest-issue">
-		<?php while($pq->have_posts()) : $pq->the_post(); ?>
-			<a href="<?php the_field('pdf_document'); ?>" rel="bookmark">
-				<!--				<?php the_title(); ?>-->
-
-				<!--
-				<code>Aktuelle Ausgabe:
-				<?php echo get_field('aktuelle_ausgabe') == 1 ? 'Ja' : 'Nein'; ?>
-				</code>
--->
-
-				<?php
-				$image = get_field('titelcover');
-				if( !empty($image) ): ?>
-
-					<img src="<?php echo $image['url']; ?>" class="img-responsive" alt="<?php echo $image['alt']; ?>" />
-
-					<?php endif; ?>
-
-
-						<?php
-					$display_date = date('M Y', strtotime(get_field('erschienen')));
-					echo $display_date;
-				?>
-			</a>
-	</section>
-	<?php wp_reset_query(); endwhile; ?>
-		<?php endif; ?>
-			<?php
-	// echo widget closing tag
-	echo $after_widget;
-}
-
-$my_class = array('classname' => 'latestissue');
-wp_register_sidebar_widget('widget_latestissue', __('Das aktuelle Akrützel'), 'init_widget_latestissue', $my_class);
 
 //add checkbox to thumbnail widget
 add_filter( 'admin_post_thumbnail_html', 'wpse_71501_thumbnail_options' );
@@ -370,10 +307,6 @@ function cmwp_scripts() {
 add_action( 'init', 'cmwp_scripts' );
 
 wp_register_script( 'masonry', get_template_directory_uri() . '/js/masonry.pkgd.min.js' );
-
-
-
-
 
 
 /* WPBROADCAST MANIPULATION, dirty but necessary */
