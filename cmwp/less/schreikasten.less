@@ -1,13 +1,28 @@
-// out: ../schreikasten.css
+//out-: ../schreikasten.css
 
-@import 'lesshat.less';
-@import 'variables.less';
+//@import 'lesshat.less';
+//@import 'variables.less';
 
 .widget_sk {
 	border: 1px solid @gray-lighter;
 	background: @white;
 	font-size: 0.8em;
 
+	tr {
+		td {
+			padding: @space-xs 0;
+		}
+	}
+	tr.sk-rowname {
+		td:nth-child(1){
+			padding-right: @space-sm;
+		}
+	}
+	tr.sk-rowemail {
+		td:nth-child(1){
+			padding-right: @space-sm;
+		}
+	}
 	.sk-table {
 		tr.sk-for-nai {
 			display: none;
@@ -27,7 +42,15 @@
 			border: 1px solid @gray-light;
 		}
 	}
-
+	.sk-comment {
+		padding: @space-xs 0;
+	}
+	.sk-box-text {
+		padding: @space-xs 0;
+	}
+	.throbber-img-off {
+		display: none;
+	}
 	> div {
 		ul {
 			padding: @space-md 0 0 0 !important;
@@ -111,4 +134,3 @@
 		}
 	}
 }
-

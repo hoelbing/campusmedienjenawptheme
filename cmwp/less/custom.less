@@ -3,19 +3,6 @@
 body {
 	//margin-top: @space-md; // nur für WP Vorschau
     font-weight: 400;
-
-	//GLOBAL COLOR OVERWRITES
-	&.blog-2 {
-		nav.navbar-lower ul.navbar-nav > li.current-menu-item > a { .box-shadow(inset 0 -3px 0 @akruetzelblau); }
-	}
-
-	&.blog-4 {
-		nav.navbar-lower ul.navbar-nav > li.current-menu-item > a { .box-shadow(inset 0 -3px 0 @campustvrot); }
-	}
-
-	&.blog-5 {
-		nav.navbar-lower ul.navbar-nav > li.current-menu-item > a { .box-shadow(inset 0 -3px 0 @campusradiogelb); }
-	}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -39,9 +26,29 @@ ul, ol {
 	}
 }
 
+.paddingBot10
+{
+  padding-bottom: @space-xs;
+  @media (min-width: @screen-md-min) {
+    padding-bottom: @space-md;
+  }
+}
+.singlePadTop
+{
+  padding-top: @space-xs;
+  @media (min-width: @screen-md-min) {
+    padding-top: @space-lg;
+  }
+  @media (min-width: @screen-lg-min) {
+    padding-top: @space-lg*2;
+  }
+}
 .container.container-main {
-    margin-top: @navbar-height;
+  margin-top: 0;
 
+    @media (min-width: @screen-sm-min) {
+      margin-top: @navbar-height;
+		}
 	#global-main-content {
 		//min-height: 500px;
 		//.make-xs-column(12);
@@ -67,7 +74,12 @@ ul, ol {
 				border-right: none;
 
 				.post-content {
+          margin-left: @space-xs;
 
+          @media (min-width: @screen-md-min) {
+      			padding-left: @space-lg;
+            padding-right: @space-lg;
+      		}
 					.post-title {
 						word-wrap: break-word;
 						word-break: break-word;
@@ -79,10 +91,48 @@ ul, ol {
 		}
 	}
 
-    .main {
-        padding: @space-md 0;
-        padding-top: @space-md;
+  // Single ausgabe
+	.content-ausgabe {
 
+		.post {
+			.post-top {
+				background: none;
+				border-top: none;
+				border-left: none;
+				border-right: none;
+
+        .ausgabe-img{
+
+        }
+				.ausgabe-content {
+          margin-left: @space-xs;
+
+          @media (min-width: @screen-md-min) {
+      			padding-left: @space-md;
+            padding-right: @space-md;
+      		}
+					.ausgabe-title {
+						word-wrap: break-word;
+						word-break: break-word;
+						margin-top: 0;
+						text-align: left;
+            font-size: @font-size-big;
+            font-weight: bold;
+            padding: 0;
+            padding-bottom: @space-md;
+					}
+				}
+			}
+		}
+	}
+
+  .main {
+
+    padding: 0;
+
+    @media (min-width: @screen-sm-min) {
+      padding-top: @space-md;
+    }
 		// images in bounds
 		img {
 			&:extend(.img-responsive);
@@ -90,7 +140,7 @@ ul, ol {
 
 		//if list of posts...
 		&.timeline {
-			padding-top: @space-xs;
+			//padding-top: @space-xs;
 
 			@media (min-width: @screen-sm-min) {
 				padding-left: @space-sm;
@@ -118,11 +168,11 @@ ul, ol {
 
 			.post-top {
 				@media (min-width: @screen-sm-min) {
-					padding: @space-md 0;
+					//padding: @space-md 0;
 				}
 			}
 		}
-    }
+  }
 }
 
 .post-thumbnail.post-header {
@@ -146,6 +196,7 @@ ul, ol {
 	&.dark {
 		background: @black;
 	}
+
 
 	.image-wrap {
 		max-height: 500px;
@@ -182,6 +233,15 @@ ul, ol {
 .post {
 	position: relative;
 
+  &.blog-6 {
+		.blog-logo {
+			background: @campusmediencolour;
+		}
+
+		.more-link {
+			color: @campusmediencolour;
+		}
+	}
 	&.blog-2 {
 		.blog-logo {
 			background: @akruetzelblau;
@@ -242,7 +302,7 @@ ul, ol {
 
 	aside.post-thumbnail {
 		.make-sm-column(3);
-		padding-left: 10px;
+		//padding-left: 10px;
 
 		img {
 			margin: 0 auto;
@@ -299,6 +359,9 @@ ul, ol {
 			font-weight: 400;
 			margin: -3px 0 0;
 
+      &.post-blog-6 {
+				color: @campusmediencolour;
+			}
 			&.post-blog-2 {
 				color: @akruetzelblau;
 			}
