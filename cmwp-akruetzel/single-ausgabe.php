@@ -16,7 +16,7 @@ get_header();
 	<div class="row">
 
 		<div class="full-width-content" id="global-main-content">
-			<div class="content content-single">
+			<div class="content content-ausgabe">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'content', 'ausgabe', get_post_format() ); ?>
 				<?php endwhile; else: ?>
