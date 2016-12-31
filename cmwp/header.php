@@ -1,36 +1,38 @@
-<?php
-	function debug_to_console( $data ) {
-
-		$output = '';
-
-		if ( is_array( $data ) ) {
-			$output .= "<script>console.warn( 'Debug Objects with Array.' ); console.log( '" . implode( ',', $data) . "' );</script>";
-		} else if ( is_object( $data ) ) {
-			$data    = var_export( $data, TRUE );
-			$data    = explode( "\n", $data );
-			foreach( $data as $line ) {
-				if ( trim( $line ) ) {
-					$line    = addslashes( $line );
-					$output .= "console.log( '{$line}' );";
-				}
-			}
-			$output = "<script>console.warn( 'Debug Objects with Object.' ); $output</script>";
-		} else {
-			$output .= "<script>console.log( 'Debug Objects: {$data}' );</script>";
-		}
-
-		echo $output;
-	}
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<!-- <title><?php wp_title('-', true, 'left'); ?></title> -->
-	<title><?php bloginfo( 'name' ); wp_title(); ?></title>
+	<title><?php wp_title('-', true, 'left'); ?></title>
 	<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="content-language" content="<?php bloginfo('language'); ?>">
+	<meta http-equiv="pragma" content="no-cache">
+
+	<?php
+		if(is_single() || is_page()) {
+			$blog_post_img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), full );
+			$blog_post_title = get_the_title();
+			$blog_post_url = get_permalink();
+			$blog_post_desc = esc_attr($post->post_content);
+			$blog_site_name = get_bloginfo( 'name', 'display' );
+			?>
+
+			<!-- Facebook and Twitter integration -->
+			<meta property="og:title" content="<?php echo $blog_post_title; ?>" />
+			<meta property="og:image" content="<?php echo $blog_post_img[0]; ?>" />
+			<meta property="og:url" content="<?php echo $blog_post_url; ?>" />
+			<meta property="og:description" content="<?php echo $blog_post_desc; ?>" />
+			<meta property="og:site_name" content="<?php echo $blog_site_name; ?>" />
+
+			<meta name="twitter:title" content="<?php echo $blog_post_title; ?>" />
+			<meta name="twitter:image" content="<?php echo $blog_post_img[0]; ?>" />
+			<meta name="twitter:url" content="<?php echo $blog_post_url; ?>" />
+			<?php
+		}
+	?>
 
     <!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/style.min.css">
@@ -52,163 +54,123 @@
 		}
 	</style>
 
+	<link type="application/atom+xml" rel="alternate" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>">
+	<link rel="pingback" href="<?php bloginfo ('pingback_url'); ?>">
+
 	<?php wp_head(); ?>
-	<?php
-    $currentBlogID = get_current_blog_id();
-    $blogArray = wp_get_sites();
-		$bodyBlogClass = 'blog-' . $currentBlogID;
-	?>
 </head>
-<body <?php body_class([$bodyBlogClass]); ?>>
+<?php
 
-<nav class="navbar navbar-default navbar-primary" role="navigation">
-    <div class="container">
-        <section class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Navigation ein-/ausblenden</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+$blog_array = array(
+	array ('title' => 'campusMedien', 'url' => 'https://www.campusmedien-jena.de', 'blogID' => '6', 'slug' => 'cm'),
+	array ('title' => 'CampusTV Jena', 'url' => 'https://www.campustv-jena.de', 'blogID' => '4', 'slug' => 'ctv'),
+	array ('title' => 'Campusradio Jena', 'url' => 'https://www.campusradio-jena.de', 'blogID' => '5', 'slug' => 'cr'),
+	array ('title' => 'Akruetzel', 'url' => 'https://www.akruetzel.de', 'blogID' => '2', 'slug' => 'ak')
+);
+$currentBlogID = get_current_blog_id();
+//$blogArray = wp_get_sites();
 
-            <a class="navbar-brand <?php if ($currentBlogID == 6) echo "current" ?>" href="<?php echo get_blog_details( 6 ) -> siteurl; ?>">
-				<?php echo get_blog_details( 6 ) -> blogname; // change dynamically later ?>
-            </a>
+?>
+<body <?php body_class(['blog-' . $currentBlogID]); ?> >
 
-			<a class="navbar-brand navbar-brand-mobile" href="<?php bloginfo( 'url' ); ?>">
-                <?php bloginfo( 'name' ); ?>
-            </a>
+<div class="hidden-xs">
+	<nav class="navbar navbar-default navbar-primary navbar-fixed-top" role="navigation">
+	    <div id="navbarAllMedien" class="container">
 
-<!--
+	        <section id="navbar-1" class="collapse navbar-collapse">
 
-            <a class="navbar-brand-image <?php if ($currentBlogID == 1) echo "current" ?>" href="<?php echo get_blog_details( 1 ) -> siteurl; ?>">
-                <img class="brand-image" src="<?php bloginfo('template_directory')?>/img/cm_logo_80px.png" alt="<?php bloginfo('title'); ?>" />
-            </a>
--->
-        </section><!-- /.navbar-header -->
-
-        <section id="navbar" class="collapse navbar-collapse">
-
-		<?php
-			/*
-				$preMenuLinkBlogImage = '';
-				if (get_theme_mod( 'themeslug_logo')) {
-					$preMenuLinkBlogImage = '<img src="' . esc_url( get_theme_mod( 'themeslug_logo' ) ) . '" class="blog-image" alt="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">';
-				}
-			*/
-			$blogMenuItems = wp_get_nav_menu_items('primary');
-
-			$menu_name = 'primary';
-
-			if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
-				$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-
-				$menu_items = wp_get_nav_menu_items($menu->term_id);
-
-				$menu_list = '<ul id="menu-' . $menu_name . '" class="nav navbar-nav">';
-
-				foreach ( (array) $menu_items as $key => $menu_item ) {
-					// check for blog
-					$blogId = null;
-					$blogSlug = null;
-
-					if (strpos($menu_item->url, 'campusradio-jena.de')) {
-						$blogId = 5;
-						$blogSlug = 'cr';
-					}
-
-					if (strpos($menu_item->url, 'campustv-jena.de')) {
-						$blogId = 4;
-						$blogSlug = 'ctv';
-					}
-
-					if (strpos($menu_item->url, 'akruetzel.de')) {
-						$blogId = 2;
-						$blogSlug = 'ak';
-					}
-
-					$preMenuLinkBlogImage = '';
-					/*
-					switch_to_blog($blogId);
-						debug_to_console(get_theme_mod( 'themeslug_logo' ));
-						if (get_theme_mod( 'themeslug_logo')) {
-							$preMenuLinkBlogImage = '<img src="' . esc_url( get_theme_mod( 'themeslug_logo' ) ) . '" class="blog-image" alt="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">';
+					<ul class="nav navbar-nav">
+					<?php
+						foreach ( $blog_array as $blog ) {
+							$currentBlogIsActivStatus = '';// default is empty
+							if ($currentBlogID == $blog['blogID'])
+							{
+								$currentBlogIsActivStatus = ' active';
+							}
+							echo '<li id="menu-blogs-' . $blog['blogID'].'" class="blog-' . $blog['blogID'] . $currentBlogIsActivStatus . '"><a href="' . $blog['url'] . '">' . $blog['title'] . '</a></li>'."\n";
 						}
-					restore_current_blog();
-					*/
-
-					$title = $menu_item->title;
-					$url = $menu_item->url;
-					$activeClass = $currentBlogID === $blogId ? ' active' : ''; // use blog id
-
-					$menu_list .= '<li class="blog-' . $blogSlug . $activeClass . '"><a href="' . $url . '">' /*. $preMenuLinkBlogImage */ . $title . '</a></li>';
-				}
-				$menu_list .= '</ul>';
-			} else {
-				$menu_list = '<ul><li>Menu "' . $menu_name . '" not defined.</li></ul>';
-			}
-
-			echo $menu_list;
-
-			?>
-        </section><!--/.navbar-collapse -->
-    </div>
-</nav>
-
+						echo '</ul>';
+					?>
+	        </section><!--/.navbar-collapse -->
+	    </div>
+	</nav>
+</div>
 
 	<!-- LOWER NAVBAR -->
-	<nav class="navbar navbar-default navbar-lower hidden-xs"
-		role="navigation">
-		<div class="container">
-			<div class="collapse navbar-collapse collapse-buttons">
-				<section class="navbar-header">
-				<div class="container">
-					<div class="pull-left">
-				<?php
-				wp_nav_menu ( array (
-          //'menu'              => 'primary',
-          'theme_location'    => 'secondary',
-          'depth'             => 2,
-          'container'         => 'div',
-          'container_class'   => 'collapse navbar-collapse',
-          'container_id'      => 'bs-example-navbar-collapse-1',
-          'menu_class'        => 'nav navbar-nav',
-          'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-          'walker'            => new wp_bootstrap_navwalker()//)
+	<nav class="navbar navbar-default navbar-lower" role="navigation">
 
-						//'container' => false,
-						//'theme_location' => 'secondary',
-						//'menu_class' => 'nav navbar-nav'
-				) );
-				?>
+		<div id="navbarMedienCategories" class="container">
+
+      <div class="navbar-header visible-xs">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+					<?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
+							<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' width="25" height="25">
+							<span class="blogname-title"><?php echo trim(get_bloginfo( 'name' )); ?></span>
+					<?php else : ?>
+						<div class="blogname-title-alone"><?php echo trim(get_bloginfo( 'name' )); ?></div>
+					<?php endif; ?>
+				</a>
+      </div>
+
+			<div id="navbar" class="navbar-collapse collapse">
+				<div class="container">
+					<div class="col-xs-12 col-sm-8">
+						<div>
+							<?php
+							// um den unterpunkt 'andere Campusmedien' anzufuegen
+							$items_wrap = '<ul class="visible-xs">';
+							foreach ( $blog_array as $blog ) {
+								$currentBlogIsActivStatus = '';// default is empty
+								if ($currentBlogID == $blog['blogID'])
+								{
+									$currentBlogIsActivStatus = ' active';
+								}
+								$items_wrap .=  '<li class="blog-' . $blog['blogID'] . $currentBlogIsActivStatus . '"><a href="' . $blog['url'] . '">' . $blog['title'] . '</a></li>'."\n";
+							}
+							$items_wrap .= "</ul>";
+
+							wp_nav_menu ( array (
+								//'menu'              => 'primary',
+								'theme_location'    => 'secondary',
+								'depth'             => 2,
+								'container'         => false,//'div',
+								'container_class'   => 'collapse navbar-collapse',
+								'container_id'      => 'main-navbar-collapse',
+								'menu_class'        => 'nav navbar-nav',
+								'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+								'walker'            => new wp_bootstrap_navwalker(),
+
+							) );
+							/* @TODO eine list mit den anderen Campusmedien ausgeben
+							wp_nav_menu ( array (
+								'items_wrap'				=> $items_wrap,
+							) );
+							*/
+							?>
+						</div>
 					</div>
-					<div class="pull-right">
-						<form action="<?php echo home_url('/'); ?>" method="get" class="form-inline form-search">
-							<!--		    <fieldset> -->
-							<div class="input-group">
-								<input type="search" name="s" id="search" placeholder="Search"
-									value="<?php the_search_query(); ?>" class="form-control"
-									title="Search" /> <span class="input-group-btn">
-									<button type="submit" id="search-btn" class="btn btn-default">
-										<span class="glyphicon glyphicon-search gi-1-4x"></span>
-									</button>
-								</span>
-							</div>
-							<!--		    </fieldset> -->
-						</form>
+					<div class="col-xs-12 col-sm-4">
+						<div class="pull-right">
+							<form action="<?php echo home_url('/'); ?>" method="get" class="form-inline form-search">
+								<div class="input-group">
+									<input type="search" name="s" id="search" placeholder="Search"
+										value="<?php the_search_query(); ?>" class="form-control"
+										title="Search" /> <span class="input-group-btn">
+										<button type="submit" id="search-btn" class="btn btn-default">
+											<span class="glyphicon glyphicon-search gi-1-4x"></span>
+										</button>
+									</span>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
-				</section>
 			</div>
 		</div>
 	</nav>
-
-	<nav class="navbar-mobile visible-xs" role="navigation">
-	<?php wp_nav_menu( array(
-		'container' => false,
-		'theme_location' => 'secondary',
-		'menu_class' => 'nav nav-pills',
-		'depth' => 1
-		) );
-	?>
-</nav>

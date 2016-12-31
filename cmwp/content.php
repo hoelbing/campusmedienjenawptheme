@@ -15,7 +15,7 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
         <a class="blog-logo blog-<?php echo $blog_id_origin ?>" href="<?php echo $blog_url ?>">
 <!--			<img src="<?php echo bloginfo('template_directory'); ?>/img/logo_icon/logo_blog_<?php echo $blog_id_origin; ?>.png" alt=""/>-->
 			<?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
-<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
+					<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
 			<?php endif; ?>
 		</a>
 
@@ -39,16 +39,21 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 				}
 			?>
 
-			<section class="post-content <?php echo $columnClassForContent; ?>">
-			<!-- 	<p class="post-blog-origin post-blog-<?php echo $blog_id_origin ?>"><?php echo $shortnames[$blog_id_origin] ?></p>  -->
+			<header>
 				<h2 class="post-title">
 					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 				</h2>
+			</header>
 
+			<section class="post-content <?php echo $columnClassForContent; ?>" aria-label="content">
 				<?php echo the_content('weiterlesen...'); ?>
-				<br>
-				<?php the_tags('<div class="tags-post"><i class="glyphicon glyphicon-tag"></i> ', ", ", '</div>'); ?>
 			</section>
+
+			<?php
+			// has a post tags then show this as a 'section'-tag
+			the_tags('<section class="post-tags"><i class="glyphicon glyphicon-tag"></i> ', ", ", '</section>');
+			?>
+
 		</section>
 
 		<!-- META -->
@@ -76,9 +81,9 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 			</div>
 
 		</aside>
-    
+
 		<!-- FOOTER -->
 		<footer></footer>
-    
+
 	</article><!-- /.post-->
 </section><!-- /.main-->

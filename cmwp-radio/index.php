@@ -17,29 +17,26 @@ get_header();
 				<div class="content">
 
 					<!-- player symbol anzeigen -->
-					<section class="main timeline">
-						<article class="post blog-<?php echo $blog_id_origin ?>" id="post-<?php the_ID(); ?>">
-					        <a class="blog-logo blog-<?php echo $blog_id_origin ?>" href="<?php echo $blog_url ?>">
+					<section class="main timeline hidden-xs">
+						<article class="post blog-<?php echo $blog_id_origin ?>">
+					    <a class="blog-logo blog-<?php echo $blog_id_origin ?>" href="<?php echo $blog_url ?>">
 					<!--			<img src="<?php echo bloginfo('template_directory'); ?>/img/logo_icon/logo_blog_<?php echo $blog_id_origin; ?>.png" alt=""/>-->
 								<?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
-					<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
+									<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
 								<?php endif; ?>
 							</a>
 
 							<section class="post-top">
-
 								<section class="post-content">
-											<div class="border-bottom-grey hidden-xs">
+											<div class="border-bottom-grey">
 												<a href="<?php home_url(); ?>/interaktiv/webplayer/"> <img
 													class="header-image" alt="CampusRadio-Jena Logo"
 													title="CampusRadio-Jena Logo"
 													src="<?php echo bloginfo('template_directory'); ?>/images/livestream_icon_eule.png">
 												</a>
 											</div>
-
 								</section>
 							</section>
-
 
 						</article><!-- /.post-->
 					</section><!-- /.main-->

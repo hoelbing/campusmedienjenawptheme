@@ -88,6 +88,7 @@ add_image_size('split-screen-thumbnail', 130, 130, array( 'center', 'center' ));
 add_image_size('full-width-thumbnail', 926);
 add_image_size('full-width-cinema-header', 1200, 500, array( 'center', 'center' ));
 add_image_size('cinema-thumbnail', 380);
+add_image_size('ausgabe-thumbnail', 200, 280, array( 'center', 'center' ));
 
 /* Infinite Scroll */
 /*add_theme_support( 'infinite-scroll', array(
@@ -99,7 +100,17 @@ add_image_size('cinema-thumbnail', 380);
 /* Schalte die Admin Bar im Frontend aus */
 //show_admin_bar( false );
 
-/* Formatted custom title */
+/* Formatted custom title
+* from: https://developer.wordpress.org/reference/hooks/wp_title/
+*/
+/**
+ * Creates a nicely formatted and more specific title element text
+ * for output in head of document, based on current view.
+ *
+ * @param string $title Default title text for current view.
+ * @param string $sep   Optional separator.
+ * @return string Filtered title.
+ */
 function wpdocs_filter_wp_title( $title, $sep ) {
     global $paged, $page;
 
@@ -107,18 +118,22 @@ function wpdocs_filter_wp_title( $title, $sep ) {
         return $title;
 
     // Add the site name.
-    $title .= get_bloginfo( 'name' );
+    $titleNew = $bloginfoName = get_bloginfo( 'name', 'display' );
 
     // Add the site description for the home/front page.
-    $site_description = get_bloginfo( 'description', 'display' );
+    $bloginfoDescription = get_bloginfo( 'description', 'display' );
+
     if ( $site_description && ( is_home() || is_front_page() ) )
-        $title = "$title $sep $site_description";
+        $titleNew = $bloginfoName . " ".  $sep . " " . $bloginfoDescription;
+
+    if ( is_single() )
+        $titleNew = $bloginfoName . " ".  $sep . " " . get_the_title();
 
     // Add a page number if necessary.
     if ( $paged >= 2 || $page >= 2 )
-        $title = "$title $sep " . sprintf( __( 'Page %s', 'twentytwelve' ), max( $paged, $page ) );
+        $titleNew = $bloginfoName . " ".  $sep . " " . sprintf( _( 'Seite %s' ), max( $paged, $page ) );
 
-    return $title;
+    return $titleNew;
 }
 add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
 
