@@ -31,7 +31,7 @@ $blog_id_origin = get_current_blog_id();
 			      <section class="ausgabe-content">
 			      <!-- 	<p class="post-blog-origin post-blog-<?php echo $blog_id_origin ?>"><?php echo $shortnames[$blog_id_origin] ?></p>  -->
 			        <div class="ausgabe-title">
-			          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?> vom <time datetime="<?php echo get_the_time(Y-m-d-g-i-s); ?>"><?php echo get_the_date('d.m.Y'); ?></time></a>
+			          <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></time></a>
 			        </div>
 			        <?php
 								$content = '<div class="h3">Inhalt der Ausgabe</div>';
@@ -39,7 +39,9 @@ $blog_id_origin = get_current_blog_id();
 								print $content;
 								//echo the_content('weiterlesen...');
 							?>
-			        <br>
+			        <br><br>
+							Datum: <time datetime="<?php echo get_the_time(Y-m-d-g-i-s); ?>"><?php echo get_the_date('d.m.Y'); ?>
+							<br>
 			        <div class="h3">Download</div>
 			        <?php $pdf_link = get_field('pdf_document');?>
 			        <a href="<?php echo $pdf_link['url']; ?>" class="" alt="Link zum Download/Lesen" title="Link zum Download/Lesen" /><span class="text-danger">PDF-Link</span></a>
