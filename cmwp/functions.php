@@ -34,24 +34,6 @@ function themeslug_theme_customizer( $wp_customize ) {
 		'settings' => 'themeslug_logo',
 	) ) );
 
-	//customize the PageNavi HTML before it is output
-	function ik_pagination($html) {
-	$out = '';
-	//wrap a's and span's in li's
-	$out = str_replace("<div","",$html);
-	$out = str_replace("class='wp-pagenavi'>","",$out);
-	$out = str_replace("<a","<li><a",$out);
-	$out = str_replace("</a>","</a></li>",$out);
-	$out = str_replace("<span","<li><span",$out);
-	$out = str_replace("</span>","</span></li>",$out);
-	$out = str_replace("</div>","",$out);
-			$out = str_replace("<span class='current'","<li class='active'><span",$out);
-
-	return '<ul class="pagination pagination-centered">
-					'.$out.'</ul>
-			';
-}
-
 	// Brand color
 	$wp_customize->add_setting( 'themeslug_accentcolor' );
 
@@ -62,6 +44,80 @@ function themeslug_theme_customizer( $wp_customize ) {
 	) ) );
 }
 add_action( 'customize_register', 'themeslug_theme_customizer' );
+
+
+//customize the PageNavi HTML before it is output
+function ik_pagination($html) {
+    $out = '';
+
+    //wrap a's and span's in li's
+    $out = str_replace("<div","",$html);
+    $out = str_replace("class='wp-pagenavi'>","",$out);
+    $out = str_replace("<a","<li><a",$out);
+    $out = str_replace("</a>","</a></li>",$out);
+    $out = str_replace("<span","<li><span",$out);
+    $out = str_replace("</span>","</span></li>",$out);
+    $out = str_replace("</div>","",$out);
+    $out = str_replace("<span class='current'","<li class='active'><span",$out);
+
+    return '<ul class="pagination pagination-centered">
+            '.$out.'</ul>
+        ';
+}
+//attach our function to the wp_pagenavi filter
+add_filter( 'wp_pagenavi', 'ik_pagination', 10, 2 );
+
+
+//Adding the Open Graph in the Language Attributes
+function add_opengraph_doctype( $output ) {
+    return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+  }
+add_filter('language_attributes', 'add_opengraph_doctype');
+
+//Lets add Open Graph Meta Info and twitter
+function insert_socialmedia_in_head() {
+  global $post;
+
+  if( is_single() ) {
+
+    $post_id = $post->ID;
+    $blog_post_title = html_entity_decode(get_the_title($post_id));
+    $blog_post_img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), full );
+    $blog_post_url = get_permalink();
+    $blog_post_desc = substr(strip_tags(apply_filters('the_content', $post->post_content)),0,150);
+    $blog_site_name = get_bloginfo( 'name', 'display' );
+
+    echo "\n";
+    // facebook
+    echo '<meta property="og:type" content="article"/>'."\n";
+    echo '<meta property="og:title" content="' . $blog_post_title . '"/>'."\n";
+    echo '<meta property="og:url" content="' . $blog_post_url . '"/>'."\n";
+    echo '<meta property="og:site_name" content="' . $blog_site_name .  '"/>'."\n";
+    echo '<meta property="og:description" content="' . $blog_post_desc .  '"/>'."\n";
+
+    // zwischen beide
+    if(!has_post_thumbnail( $post->ID )) { //the post does not have featured image, use a default image
+      $default_image="http://example.com/image.jpg"; //replace this with a default image on your server or an image in your media library
+      //echo '<meta property="og:image" content="' . $default_image . '"/>';
+    }
+    else{
+      $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+      //fb
+      echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>'."\n";
+      //twitter
+      echo '<meta property="twitter:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>'."\n";
+    }
+    // twitter
+    echo '<meta name="twitter:title" content="' . $blog_post_title . '" />'."\n";
+    echo '<meta name="twitter:url" content="' . $blog_post_url . '" />'."\n";
+
+  }
+  echo "
+";
+/*
+*/
+}
+add_action('wp_head', 'insert_socialmedia_in_head');
 
 /* Responsive Wrapper für Embeds */
 add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;

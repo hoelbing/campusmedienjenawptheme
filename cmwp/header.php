@@ -11,29 +11,6 @@
 	<meta http-equiv="content-language" content="<?php bloginfo('language'); ?>">
 	<meta http-equiv="pragma" content="no-cache">
 
-	<?php
-		if(is_single() || is_page()) {
-			$blog_post_img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), full );
-			$blog_post_title = get_the_title();
-			$blog_post_url = get_permalink();
-			$blog_post_desc = esc_attr($post->post_content);
-			$blog_site_name = get_bloginfo( 'name', 'display' );
-			?>
-
-			<!-- Facebook and Twitter integration -->
-			<meta property="og:title" content="<?php echo $blog_post_title; ?>" />
-			<meta property="og:image" content="<?php echo $blog_post_img[0]; ?>" />
-			<meta property="og:url" content="<?php echo $blog_post_url; ?>" />
-			<meta property="og:description" content="<?php echo $blog_post_desc; ?>" />
-			<meta property="og:site_name" content="<?php echo $blog_site_name; ?>" />
-
-			<meta name="twitter:title" content="<?php echo $blog_post_title; ?>" />
-			<meta name="twitter:image" content="<?php echo $blog_post_img[0]; ?>" />
-			<meta name="twitter:url" content="<?php echo $blog_post_url; ?>" />
-			<?php
-		}
-	?>
-
     <!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/style.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/font-awesome.min.css">
