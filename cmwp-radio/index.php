@@ -1,15 +1,17 @@
 <?php
-get_header();
-?>
+/**
+ * Diese PHP-Seite wird auf der Startseite aufgerufen
+ *
+ */
 
-<?php
-	$blog_id_origin = get_current_blog_id(); //(get_post_meta(get_the_ID(), 'origin_blog_id', true));
+get_header();
+
+	$blog_id_origin = get_post_meta(get_the_ID(), 'origin_blog_id', true);
 	$blog_url = get_blog_details($blog_id_origin) -> siteurl;
 	$blog_name = get_blog_details($blog_id_origin) -> blogname;
 	$shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrützel', '4' => 'Campus.tv');
+
 ?>
-
-
 
 	<div class="container container-main">
 		<div class="row">
@@ -63,9 +65,11 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			//das WP Plugin 'wp_pagenavi' einfuegen (Seitennavigation)
 			if (function_exists('wp_pagenavi'))
 			{
+							echo '<div class="col-sm-2"> </div>';
 							echo '<div id="pagenavi" class="col-xs-12">';
 							wp_pagenavi();
 							echo '</div><!-- END pagenavi-->';
+							echo '<div class="col-sm-2"> </div>';
 			}
 			else {
 				# code...

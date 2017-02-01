@@ -1,7 +1,7 @@
 <?php
 /* Datei Upload Größe */
-@ini_set( 'upload_max_size' , '50M' );
-@ini_set( 'post_max_size', '50M');
+//@ini_set( 'upload_max_size' , '50M' );
+//@ini_set( 'post_max_size', '50M');
 @ini_set( 'max_execution_time', '300' );
 
 // Register Custom Navigation Walker
@@ -11,13 +11,12 @@ require_once('wp_bootstrap_navwalker.php');
 function my_custom_login_logo() {
 	//echo '<style type="text/css"> h1 a { background-image:url('.get_bloginfo('template_directory').'/img/cm_logo_80px.png) !important; background-size: 80px 107px !important; height: 107px !important; } </style>';
 }
-add_action('login_head', 'my_custom_login_logo');
+//add_action('login_head', 'my_custom_login_logo');
 
 /* Entferne Wordpress-Version aus Quellcode */
 remove_action('wp_head', 'wp_generator');
 
 /* Blog Logo */
-
 function themeslug_theme_customizer( $wp_customize ) {
 	// Logo
     $wp_customize->add_section( 'themeslug_theme_section' , array(
@@ -46,6 +45,10 @@ function themeslug_theme_customizer( $wp_customize ) {
 add_action( 'customize_register', 'themeslug_theme_customizer' );
 
 
+/*-------------------------------------------------------------------
+Bootstrap WordPress Pagination Using WP-Pagenavi
+-------------------------------------------------------------------*/
+
 //customize the PageNavi HTML before it is output
 function ik_pagination($html) {
     $out = '';
@@ -58,14 +61,77 @@ function ik_pagination($html) {
     $out = str_replace("<span","<li><span",$out);
     $out = str_replace("</span>","</span></li>",$out);
     $out = str_replace("</div>","",$out);
-    $out = str_replace("<span class='current'","<li class='active'><span",$out);
+    $out = str_replace("<li><span class='current'","<li class='active'><span",$out);
 
-    return '<ul class="pagination pagination-centered">
-            '.$out.'</ul>
-        ';
+    return '<nav>
+            <ul class="pagination">'.$out.'</ul>
+            </nav>';
+
+            /*
+  //  Wrap a's and span's in li's
+  $out = str_replace("<div","",$html);
+  $out = str_replace("class='wp-pagenavi'>","",$out);
+  $out = str_replace("<a","<li><a",$out);
+  $out = str_replace("</a>","</a></li>",$out);
+  $out = str_replace("<span","<li><span",$out);
+  $out = str_replace("</span>","</span></li>",$out);
+  $out = str_replace("</div>","",$out);
+  $out = str_replace("<li><span class='pages'", "<li class='disabled'><span", $out);
+  $out = preg_replace("!<li><span class='current'>([0-9])</span></li>!u", "<li class='active'><span>$1 <span class='sr-only'>(current)</span></span></li>", $out);
+  return "<ul class='pagination pagination-sm'>{$out}</ul>";
+  */
 }
+
 //attach our function to the wp_pagenavi filter
-add_filter( 'wp_pagenavi', 'ik_pagination', 10, 2 );
+//add_filter( 'wp_pagenavi', 'ik_pagination', 10, 2 );
+
+// Bootstrap pagination function
+// http://fellowtuts.com/wordpress/bootstrap-3-pagination-in-wordpress/
+function wp_bs_pagination($pages = '', $range = 4)
+{
+
+     $showitems = ($range * 2) + 1;
+
+     global $paged;
+
+     if(empty($paged)) $paged = 1;
+
+     if($pages == '')
+     {
+       global $wp_query;
+       $pages = $wp_query->max_num_pages;
+       if(!$pages)
+       {
+         $pages = 1;
+       }
+     }
+
+     if(1 != $pages)
+     {
+        echo '<div class="text-center">';
+        echo '<nav><ul class="pagination"><li class="disabled hidden-xs"><span><span aria-hidden="true">Page '.$paged.' of '.$pages.'</span></span></li>';
+         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<li><a href='".get_pagenum_link(1)."' aria-label='First'>&laquo;<span class='hidden-xs'> First</span></a></li>";
+         if($paged > 1 && $showitems < $pages) echo "<li><a href='".get_pagenum_link($paged - 1)."' aria-label='Previous'>&lsaquo;<span class='hidden-xs'> Previous</span></a></li>";
+         for ($i=1; $i <= $pages; $i++)
+         {
+             if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
+             {
+                 echo ($paged == $i)? "<li class=\"active\"><span>".$i." <span class=\"sr-only\">(current)</span></span>
+    </li>":"<li><a href='".get_pagenum_link($i)."'>".$i."</a></li>";
+             }
+         }
+
+         if ($paged < $pages && $showitems < $pages) echo "<li><a href=\"".get_pagenum_link($paged + 1)."\"  aria-label='Next'><span class='hidden-xs'>Next </span>&rsaquo;</a></li>";
+
+         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<li><a href='".get_pagenum_link($pages)."' aria-label='Last'><span class='hidden-xs'>Last </span>&raquo;</a></li>";
+         echo "</ul></nav>";
+         echo "</div>";
+     }
+}
+
+/*-------------------------------------------------------------------
+Bootstrap WordPress Pagination Using WP-Pagenavi
+-------------------------------------------------------------------*/
 
 
 //Adding the Open Graph in the Language Attributes
@@ -82,9 +148,8 @@ function insert_socialmedia_in_head() {
 
     $post_id = $post->ID;
     $blog_post_title = html_entity_decode(get_the_title($post_id));
-    $blog_post_img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), full );
     $blog_post_url = get_permalink();
-    $blog_post_desc = substr(strip_tags(apply_filters('the_content', $post->post_content)),0,150);
+    $blog_post_desc = substr( strip_tags(apply_filters('the_content', $post->post_content)), 0, 150);
     $blog_site_name = get_bloginfo( 'name', 'display' );
 
     echo "\n";
@@ -96,26 +161,24 @@ function insert_socialmedia_in_head() {
     echo '<meta property="og:description" content="' . $blog_post_desc .  '"/>'."\n";
 
     // zwischen beide
-    if(!has_post_thumbnail( $post->ID )) { //the post does not have featured image, use a default image
-      $default_image="http://example.com/image.jpg"; //replace this with a default image on your server or an image in your media library
-      //echo '<meta property="og:image" content="' . $default_image . '"/>';
-    }
-    else{
-      $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+    if(has_post_thumbnail( $post->ID )) {
+      $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "default_max-thumbnail");
       //fb
       echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>'."\n";
       //twitter
       echo '<meta property="twitter:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>'."\n";
+    }
+    else{
+      //the post does not have featured image, use a default image
+      //$default_image="http://example.com/image.jpg"; //replace this with a default image on your server or an image in your media library
+      //echo '<meta property="og:image" content="' . $default_image . '"/>';
     }
     // twitter
     echo '<meta name="twitter:title" content="' . $blog_post_title . '" />'."\n";
     echo '<meta name="twitter:url" content="' . $blog_post_url . '" />'."\n";
 
   }
-  echo "
-";
-/*
-*/
+  echo "\n";
 }
 add_action('wp_head', 'insert_socialmedia_in_head');
 
@@ -136,15 +199,6 @@ function remove_more_jump_link($link) {
 }
 add_filter('the_content_more_link', 'remove_more_jump_link');
 
-/* Thumbnails für Beiträge */
-add_theme_support( 'post-thumbnails' );
-
-/* Thumbnail Größen */
-add_image_size('split-screen-thumbnail', 130, 130, array( 'center', 'center' ));
-add_image_size('full-width-thumbnail', 926);
-add_image_size('full-width-cinema-header', 1200, 500, array( 'center', 'center' ));
-add_image_size('cinema-thumbnail', 380);
-add_image_size('ausgabe-thumbnail', 200, 280, array( 'center', 'center' ));
 
 /* Infinite Scroll */
 /*add_theme_support( 'infinite-scroll', array(
@@ -195,12 +249,7 @@ add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
 
 /* Registriere Menus */
 register_nav_menus( array(
-    'primary' => __( 'Hauptmenü', 'cmwp'),
-	'secondary' => __( 'Untermenü', 'cmwp'),
-    'third' => __( 'Footer Menu Campusmedien', 'cmwp' ),
-    'fourth' => __( 'Footer Menu Campusradio', 'cmwp' ),
-    'fifth' => __( 'Footer Menu Akrützel', 'cmwp' ),
-    'sixth' => __( 'Footer Menu Campus.tv', 'cmwp' )
+	   'secondary' => __( 'Untermenü', 'cmwp')
  ) );
 
 /* Breadcrumb Function */
@@ -247,81 +296,98 @@ function cmwp_widgets_init() {
 		'after_title'   => '</h3>',
 	) );
 
-	register_sidebar( array(
-		'name'          => __( 'Footerbar', 'cmwp' ),
-		'id'            => 'footer_bar',
-		'description'   => __( 'Das Footerbar für Widgets', 'cmwp' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
 }
 add_action( 'widgets_init', 'cmwp_widgets_init' );
 
+/*
+ *  ----- Thumbnails
+ */
 
+/* Thumbnails für Beiträge */
+add_theme_support( 'post-thumbnails' );
 
-//add checkbox to thumbnail widget
-add_filter( 'admin_post_thumbnail_html', 'wpse_71501_thumbnail_options' );
+/* Thumbnail Größen */
+add_image_size('split-screen-thumbnail', 130, 130, array( 'center', 'center' ));
+add_image_size('default_max-thumbnail', 667, 400);
 
-function wpse_71501_thumbnail_options( $html )
-{
-	if (isset($GLOBALS['post'])) {
-		$value_big_thumbnail = get_post_meta($GLOBALS['post']->ID, 'big_thumbnail', true);
-	} else {
-		$value_big_thumbnail = '';
-	}
+add_image_size('full-width-thumbnail', 926);
+add_image_size('full-width-cinema-header', 1200, 500, array( 'center', 'center' ));
 
-	if (isset($GLOBALS['post'])) {
-		$value_cinema_thumbnail = get_post_meta($GLOBALS['post']->ID, 'cinema_thumbnail', true);
-	} else {
-		$value_cinema_thumbnail = '';
-	}
+add_image_size('cinema-thumbnail', 380);
+add_image_size('ausgabe-thumbnail', 200, 280, array( 'center', 'center' ));
 
-	if (isset($GLOBALS['post'])) {
-		$value_copyright_image = get_post_meta($GLOBALS['post']->ID, 'copyright_image', true);
-	} else {
-		$value_copyright_image = '';
-	}
+/* fuege dem Beitragsbild mehr Optionen hinzu  */
+function add_featured_image_display_settings( $content, $post_id ) {
+  $content .= "<hr/>";
 
-    return $html . <<<html
-<p>
-	<label for="copyright_image">
-		<input id="copyright_image" name="copyright_image" type="text" placeholder="Name oder Webseite" value="
-html
-		. $value_copyright_image . <<<html
-"/>
-		<!--Copyright Inhaber-->
-	</label>
-</p>
+  // option - copyright_image
+  $field_id    = 'copyright_image';
+	$field_value = esc_attr( get_post_meta( $post_id, $field_id, true ) );
+	$field_text  = esc_html__( 'Copyright Angaben zum Bild', 'cmwp' );
+  $field_placeholder_text  = esc_html__( 'Name oder Webseite', 'cmwp' );
+	$field_state = checked( $field_value, 1, false);
+	$field_label = sprintf(
+	    '<p><label for="%1$s">%5$s<br/><input type="text" name="%1$s" id="%1$s" placeholder="%2$s" value="%3$s" %4$s> </label></p>',
+	    $field_id, $field_placeholder_text, $field_value, $field_state, $field_text
+	);
+  /*<input type="text" name="copyright_image" id="copyright_image" placeholder="Name oder Webseite" value="<?php echo $value_copyright_image; ?>"/>*/
+  $content .= $field_label ."<hr/>";
 
-<p>
+  $content .= "<p>". esc_html__( 'Startseite', 'cmwp' )."<br/>";
+  // option - big_thumbnail
+	$field_id    = 'big_thumbnail';
+	$field_value = esc_attr( get_post_meta( $post_id, $field_id, true ) );
+	$field_text  = esc_html__( 'volle Breite (Breite: 926 px )', 'cmwp' );
+	$field_state = checked( $field_value, 1, false);
+	$field_label = sprintf(
+	    '<label for="%1$s"><input type="checkbox" name="%1$s" id="%1$s" value="%2$s" %3$s> %4$s</label>',
+	    $field_id, $field_value, $field_state, $field_text
+	);
+  $content .= $field_label ."</p>"."<hr/>";
 
-<p>
-	<label for="big_thumbnail">
-		<input id="big_thumbnail" name="big_thumbnail" type="checkbox" value="1"
-html
-		. ($value_big_thumbnail ? ' checked="checked"' : '') .  <<<html
-/>
-		Thumbnail volle Breite (Feed)
-	</label>
-</p>
+  $content .= "<p>". esc_html__( 'Einzelansicht', 'cmwp' )."<br/>";
 
-<p>
-	<label for="cinema_thumbnail">
-		<input id="cinema_thumbnail" name="cinema_thumbnail" type="checkbox" value="1"
-html
-		. ($value_cinema_thumbnail ? ' checked="checked"' : '') .  <<<html
-/>
-		Cinema Header (Einzelansicht)
-	</label>
-</p>
-html;
+  // option - cinema_thumbnail
+  $field_id    = 'cinema_thumbnail';
+	$field_value = esc_attr( get_post_meta( $post_id, $field_id, true ) );
+	$field_text  = esc_html__( 'Cinema Header (1200 x 500, cropped)', 'cmwp' );
+	$field_state = checked( $field_value, 1, false);
+	$field_label = sprintf(
+	    '<label for="%1$s"><input type="checkbox" name="%1$s" id="%1$s" value="%2$s" %3$s> %4$s</label>',
+	    $field_id, $field_value, $field_state, $field_text
+	);
+  $content .= $field_label ."</p>";
+
+/*
+$content .= "<p>". esc_html__( 'Einzelansicht', 'cmwp' )."<br/>";
+
+// option - cinema_thumbnail
+$field_id    = 'single_size_thumbnail';//'cinema_thumbnail';
+$field_value = esc_attr( get_post_meta( $post_id, $field_id, 0 ) );
+$field_text_01  = esc_html__( 'standart', 'cmwp' );
+$field_text_02  = esc_html__( 'Cinema Mode (1200 x 500, cropped)', 'cmwp' );
+$field_state = checked( $field_value, 0, true);
+$field_label_01 = sprintf(
+    '<label for="%1$s"><input type="radio" name="%1$s" value="%2$s" %3$s> %4$s</label>',
+    $field_id, $field_value, $field_state, $field_text_01
+);
+$field_state = checked( $field_value, 1, true);
+$field_label_02 = sprintf(
+    '<label for="%1$s"><input type="radio" name="%1$s" value="%2$s" %3$s> %4$s</label>',
+    $field_id, $field_value, $field_state, $field_text_02
+);
+
+$content .= $field_label_01 . "<br/>" . $field_label_02 ."</p>";
+*/
+  return $content;
 }
+add_filter( 'admin_post_thumbnail_html', 'add_featured_image_display_settings', 10, 2 );
 
-add_action( 'save_post', 'save_thumbnail_option', 10, 1 );
 
-function save_thumbnail_option($post_id) {
+/*
+ * die meta infos vom vorschaubild werden ausgelesen
+ */
+function save_thumbnail_option($post_id, $post, $update) {
 	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
@@ -343,25 +409,25 @@ function save_thumbnail_option($post_id) {
 
 	/* OK, it's safe for us to save the data now. */
 
-	// Make sure that it is set.
-	if( isset( $_POST[ 'big_thumbnail' ] ) ) {
-		update_post_meta( $post_id, 'big_thumbnail', 'yes' );
-	} else {
-		update_post_meta( $post_id, 'big_thumbnail', '' );
-	}
+  $field_id    = 'big_thumbnail';
+	$field_value = isset( $_REQUEST[ $field_id ] ) ? 1 : 0;
+	update_post_meta( $post_id, $field_id, $field_value );
 
-	// Make sure that it is set.
-	if( isset( $_POST[ 'cinema_thumbnail' ] ) ) {
-		update_post_meta( $post_id, 'cinema_thumbnail', 'yes' );
-	} else {
-		update_post_meta( $post_id, 'cinema_thumbnail', '' );
-	}
+  $field_id    = 'cinema_thumbnail';
+	$field_value = isset( $_REQUEST[ $field_id ] ) ? 1 : 0;
+	update_post_meta( $post_id, $field_id, $field_value );
+/*
+  $field_id    = 'single_size_thumbnail';
+  $field_value = isset( $_REQUEST[ $field_id ] ) ? $_REQUEST[ $field_id ] : 0;
+  update_post_meta( $post_id, $field_id, $field_value );
+*/
 
 	// Make sure that it is set.
 	if( isset( $_POST[ 'copyright_image' ] ) ) {
 		update_post_meta( $post_id, 'copyright_image', sanitize_text_field( $_POST[ 'copyright_image' ] ) );
 	}
 }
+add_action( 'save_post', 'save_thumbnail_option', 10, 3 );
 
 /* SCRIPTS */
 
@@ -370,14 +436,14 @@ function save_thumbnail_option($post_id) {
  */
 function cmwp_scripts() {
 	wp_dequeue_script('jquery');
-	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.11.1.min.js', array(), '1.11.1', true );
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '', true );
-	wp_enqueue_script( 'all', get_template_directory_uri() . '/js/all.js', array(), '', true );
+	wp_enqueue_script( 'jquery', get_stylesheet_directory_uri() . '/js/jquery-1.11.1.min.js', array(), '1.11.1', true );
+	wp_enqueue_script( 'bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array(), '', true );
+	wp_enqueue_script( 'all', get_stylesheet_directory_uri() . '/js/all.js', array(), '', true );
 }
 
 add_action( 'init', 'cmwp_scripts' );
 
-wp_register_script( 'masonry', get_template_directory_uri() . '/js/masonry.pkgd.min.js' );
+wp_register_script( 'masonry', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js' );
 
 
 /* WPBROADCAST MANIPULATION, dirty but necessary */

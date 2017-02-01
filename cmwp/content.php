@@ -2,7 +2,7 @@
 /**
  * The default template for displaying content.
  */
-$blog_id_origin = (get_post_meta(get_the_ID(), 'origin_blog_id', true));
+$blog_id_origin = get_post_meta(get_the_ID(), 'origin_blog_id', true);
 $blog_url = get_blog_details($blog_id_origin) -> siteurl;
 $blog_name = get_blog_details($blog_id_origin) -> blogname;
 //	$shortnames = array('1' => 'Campusmedien', '6' => 'Campusradio', '3' => 'Akrützel', '4' => 'Campustv');
@@ -20,21 +20,26 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 		</a>
 
 		<section class="post-top">
+
 			<?php
-				$columnClassForContent = '';
+				$columnClassForContent = "";
 				if ( has_post_thumbnail() ) {
-					$big_tn = get_post_meta(get_the_ID(), 'big_thumbnail', true);
-					if (isset($big_tn) && $big_tn == 'yes') {
-						echo '<aside class="post-thumbnail full-width"><a href="' . get_the_permalink() . '" title="">';
-						the_post_thumbnail('full-width-cinema-header');
+					$asideClassForThumbnail = "";
+					$postClassForThumbnail = "";
+
+					$size_thumbnail = get_post_meta(get_the_ID(), 'big_thumbnail', true);
+
+					if ( $size_thumbnail == 'yes' ) {
+						$asideClassForThumbnail = "post-thumbnail full-width";
+						$postClassForThumbnail = "full-width-cinema-header";
 					} else {
-						echo '<aside class="post-thumbnail"><a href="' . get_the_permalink() . '" title="">';
-						$columnClassForContent = 'split-screen';
-						//the_post_thumbnail('split-screen-thumbnail');
-						the_post_thumbnail( array(667, 400) );
+						$columnClassForContent = "split-screen";
+						$asideClassForThumbnail = "post-thumbnail";
+						$postClassForThumbnail = "default_max-thumbnail'";
 					}
 
-
+					echo '<aside class="' . $asideClassForThumbnail . '"><a href="' . get_the_permalink() . '" title="' . the_title() . '">';
+					the_post_thumbnail($postClassForThumbnail);
 					echo '</a></aside>';
 				}
 			?>
@@ -81,9 +86,6 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 			</div>
 
 		</aside>
-
-		<!-- FOOTER -->
-		<footer></footer>
 
 	</article><!-- /.post-->
 </section><!-- /.main-->

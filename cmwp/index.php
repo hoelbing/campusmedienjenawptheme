@@ -30,9 +30,12 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 			//das WP Plugin 'wp_pagenavi' einfuegen (Seitennavigation)
 			if (function_exists('wp_pagenavi'))
 			{
+
 							echo '<div id="pagenavi" class="col-xs-12">';
 							wp_pagenavi();
 							echo '</div><!-- END pagenavi-->';
+
+						//	wp_bs_pagination();
 			}
 			else {
 				# code...
