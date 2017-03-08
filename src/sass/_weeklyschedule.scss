@@ -1,0 +1,62 @@
+/*============================================================================
+		WeeklyScheduleWP :: Start
+============================================================================*/
+
+#WeeklyScheduleWP {
+	float: none !important;
+
+	#tabs {
+		//Nav
+		ul.ui-tabs-nav {
+			@include list-unstyled();
+
+			.tabs2 {
+				> a {
+					text-transform: uppercase;
+					font-weight: bold;
+					outline: none;
+
+					div {
+
+					}
+				}
+
+				&.ui-tabs-active {
+					> a {
+						color: $campusradiogelb;
+					}
+				}
+			}
+		}
+
+		#ws_menus {
+			.ws_weekday {
+				float: none !important;
+
+				.weekday_entry {
+					//Programmliste
+					ul {
+						@include list-unstyled();
+					}
+				}
+
+				> h4, > div {
+					float: none !important;
+				}
+
+				.weekday_text_weekday_long {
+
+				}
+				.weekday_entry {
+					ul {
+						@include list-unstyled();
+					}
+				}
+				&#tabs-mo {
+
+				}
+			}
+		}
+
+	}
+}
