@@ -4,29 +4,32 @@
   "description": "CampusmedienJenaWordpressThemplate",
   "main": "index.js",
   "scripts": {
-
-    "clean": "rm -r -f ./build",
-
-    "build": "npm run clean & npm run build:sass:style & npm run build:sass:style-min & npm run build:copy",
-    "build:sass:style": "node-sass ./src/sass/style.scss ./build/cmwp/style.css",
-    "build:sass:style-min": "node-sass --output-style compressed ./src/sass/style.scss ./build/cmwp/style.min.css",
-
-    "build:copy": "npm run build:copy:content & npm run build:copy:bootstrap & npm run build:copy:jquery & npm run build:copy:font-awesome",
-    "build:copy:content": "cpx \"./content/**\" ./build",
-    "build:copy:bootstrap": "cpx \"./node_modules/bootstrap/dist/**\" ./build/cmwp/assets/bootstrap/",
-    "build:copy:font-awesome": "cpx \"./node_modules/font-awesome/fonts/*\" ./build/cmwp/assets/font-awesome/fonts/",
-    "build:copy:jquery": "cpx \"./node_modules/jquery/dist/jquery.min.js\" ./build/cmwp/assets/jquery/"
-
+    "clean": "gulp clean",
+    "build": "gulp build"
   },
   "author": "Carsten Hoelbing",
   "license": "MIT",
   "dependencies": {
-    "node-sass": "^3.8.0",
-    "cpx": "1.5.0",
-    "rimraf": "latest",
-    "bootstrap": "3.3.7",
     "bootstrap-sass": "^3.3.7",
-    "jquery": "1.12.4",
-    "font-awesome": "4.7.0"
+    "jquery": "^1.12.4",
+    "font-awesome": "^4.7.0",
+    "npm-font-source-sans-pro": "^1.0.2",
+    "cookieconsent": "^3.0.4",
+    "sassdoc": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.2.12",
+    "@types/node": "^6.0.88",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-minify": "^1.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-stylelint": "^4.0.0",
+    "node-sass": "4.5.3",
+    "require-dir": "^0.3.2",
+    "stylelint": "^8.1.1",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-scss": "^1.5.2"
   }
 }
