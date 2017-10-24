@@ -17,10 +17,10 @@
 							<li><div class="note">Carl-Zeiss-Promenade 2</div></li>
 							<li><div class="zip">07745 Jena</div></li>
 							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641205796"> +49 (0)3641 205-796</a>
+									<i class="fa fa-phone" aria-hidden="true"> </i><a href="tel:+493641205796"> +49 (0)3641 205-796</a>
 								</div></li>
 							<li><div class="email">
-									<i class="glyphicon glyphicon-envelope"> </i>
+									<i class="fa fa-envelope-o" aria-hidden="true"> </i>
 									redaktion@campusradio-jena.de
 								</div></li>
 						</ul>
@@ -92,7 +92,7 @@
 					| <a href="<?php bloginfo('url'); ?>/?page_id=522"
 						title="Impressum">Impressum</a> | <a
 						href="<?php bloginfo('url'); ?>/?page_id=12857"
-						title="Datenschutz">Datenschutz</a> | 
+						title="Datenschutz">Datenschutz</a> |
 						 -->
 						<a
 						href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
@@ -130,7 +130,7 @@
 			g.defer = true;
 			g.src = u + 'piwik.js';
 			s.parentNode.insertBefore(g, s);
-		})(); 
+		})();
 	</script>
 <noscript>
 	<p>

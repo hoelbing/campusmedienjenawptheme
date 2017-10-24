@@ -14,23 +14,6 @@
     <!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/style.min.css">
 
-	<style type="text/css">
-		/* source-sans-pro-regular - latin */
-		@font-face {
-		  font-family: 'Source Sans Pro';
-		  font-style: normal;
-		  font-weight: 400;
-		  src: url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.eot'); /* IE9 Compat Modes */
-		  src: local('Source Sans Pro'),
-					 local('SourceSansPro-Regular'),
-		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.woff') format('woff'), /* Modern Browsers */
-		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-		       url('<?php bloginfo('template_directory'); ?>/fonts/source-sans-pro-v9-latin-regular.svg#SourceSansPro') format('svg'); /* Legacy iOS */
-		}
-	</style>
-
 	<link type="application/atom+xml" rel="alternate" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>">
 	<link rel="pingback" href="<?php bloginfo ('pingback_url'); ?>">
 
@@ -140,7 +123,7 @@ $currentBlogID = get_current_blog_id();
 										value="<?php the_search_query(); ?>" class="form-control"
 										title="Search" /> <span class="input-group-btn">
 										<button type="submit" id="search-btn" class="btn btn-default">
-											<span class="glyphicon glyphicon-search gi-1-4x"></span>
+											<i class="fa fa-search-plus" aria-hidden="true"></i></span>
 										</button>
 									</span>
 								</div>

@@ -1,14 +1,11 @@
-    <footer id="global-footer">
-		<div class="container">
-	<div class="col-sm-1"> </div>
-	
-	<div class="container col-sm-10 bg-white text-color-grey">
-			
+<footer id="global-footer">
+	<div class="container">
+
+	 <div class="container col-sm-10 col-sm-offset-1 bg-white text-color-grey">
+	   <div class="row">
 			<div class="col-xs-12">
-				
-				<div class="col-sm-3"> </div>
-				
-				<div class="col-xs-12 col-sm-4">
+
+				<div class="col-xs-12 col-sm-4 col-sm-offset-3">
 					<!-- <div class="h4">Anschrift</div> -->
 					<address>
 						<h1><div class="h4 text-color-grey"><?php bloginfo('name'); ?></div></h1>
@@ -17,18 +14,31 @@
 							<li><div class="note">Carl-Zeiss-Promenade 2</div></li>
 							<li><div class="zip">07745 Jena</div></li>
 							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641205796"> +49 (0)3641 205-796</a>
+									<i class="fa fa-phone" aria-hidden="true"> </i><a href="tel:+493641205796"> +49 (0)3641 205-796</a>
 								</div></li>
 							<li><div class="email">
-									<i class="glyphicon glyphicon-envelope"> </i>
+									<i class="fa fa-envelope-o" aria-hidden="true"> </i>
 									redaktion@campusradio-jena.de
 								</div></li>
 						</ul>
 					</address>
 				</div>
-				
+
 				<div class="col-xs-12 col-sm-4">
-					<h3><div class="h4 text-color-grey">Freunde und F&ouml;rderer</div></h3>
+					<div class="footer-header text-color-grey">Freunde und F&ouml;rderer</div>
+	         <?php
+            wp_nav_menu ( array (
+              'menu'              => 'footer-menu',
+              'theme_location'    => 'footer-menu',
+              'depth'             => 2,
+              'container'         => false,//'div',
+              'container_class'   => 'ul',
+              'container_id'      => 'footer-menu',
+              'menu_class'        => 'li',
+              'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+              'walker'            => new wp_bootstrap_navwalker(),
+            ) );
+          ?>
 					<ul class="list-unstyled h5 text-decoration-none">
 						<li></li>
 						<li><a href="http://stura.eah-jena.de/" target="_blank" title="EAH-Stura">EAH-Stura</a></li>
@@ -38,7 +48,7 @@
 						<li><a href="https://www.fsr-kowi.de/" target="_blank" title="FSR KoWi Jena">FSR KoWi Jena</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="col-sm-2"> </div>
 
 			</div>
@@ -52,20 +62,20 @@
 					</ul>
 					<div class="col-xs-2"> </div>
 			</div>
-		 
+
 			<div class="col-sm-12 row">
 				<div class="col-sm-4"> </div>
 				<div class="col-xs-12 col-sm-6 h5 center-block">
 					<a href="<?php bloginfo('url'); ?>/?page_id=31" title="Kontakt">Kontakt</a> |
-					<a href="<?php bloginfo('url'); ?>/?page_id=522" title="Impressum">Impressum</a> | 
-					<a href="<?php bloginfo('url'); ?>/?page_id=12857" title="Datenschutz">Datenschutz</a> | 
+					<a href="<?php bloginfo('url'); ?>/?page_id=522" title="Impressum">Impressum</a> |
+					<a href="<?php bloginfo('url'); ?>/?page_id=12857" title="Datenschutz">Datenschutz</a> |
 					<a href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
 				</div>
 				<div class="col-sm-2"> </div>
 			</div>
 
 		</div>
-			
+  </div>
 	<div class="col-sm-1"> </div>
 
 		</div>
@@ -77,7 +87,7 @@
 	 * (Hardcode)
 	 */
 	 ?>
-	
+
 	<!-- Piwik -->
 	<script type="text/javascript">
 		var _paq = _paq || [];
@@ -94,11 +104,11 @@
 			g.defer = true;
 			g.src = u + 'piwik.js';
 			s.parentNode.insertBefore(g, s);
-		})(); 
+		})();
 	</script>
 	<noscript><p><img src="https://stats.stura.uni-jena.de/piwik.php?idsite=12" style="border:0;" alt="piwik" title="piwik"/></p></noscript>
 	<!-- End Piwik Code -->
-	
+
 	<?php wp_footer(); ?>
   </body>
 </html>

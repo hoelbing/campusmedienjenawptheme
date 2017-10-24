@@ -34,7 +34,7 @@ get_header();
 												<a href="<?php home_url(); ?>/interaktiv/webplayer/"> <img
 													class="header-image" alt="CampusRadio-Jena Logo"
 													title="CampusRadio-Jena Logo"
-													src="<?php echo bloginfo('template_directory'); ?>/images/livestream_icon_eule.png">
+													src="<?php echo bloginfo('template_directory'); ?>/img/livestream_icon_eule.png">
 												</a>
 											</div>
 								</section>

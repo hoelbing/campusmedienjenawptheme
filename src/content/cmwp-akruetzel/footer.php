@@ -1,13 +1,13 @@
     <footer id="global-footer">
 		<div class="container">
 	<div class="col-sm-1"> </div>
-	
+
 	<div class="container col-sm-10 bg-white text-color-grey">
-			
+
 			<div class="col-xs-12">
-				
+
 				<div class="col-sm-3"> </div>
-				
+
 				<div class="col-xs-12 col-sm-4">
 					<!-- <div class="h4">Anschrift</div> -->
 					<address>
@@ -19,19 +19,19 @@
 							<li><div class="note">Fürstengraben 1</div></li>
 							<li><div class="zip">07743 Jena</div></li>
 							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641930991"> +49 (0)3641 9-30991</a>
+									<i class="fa fa-phone" aria-hidden="true"> </i><a href="tel:+493641930991"> +49 (0)3641 9-30991</a>
 								</div></li>
 							<li><div class="fax">
-									<i class="glyphicon glyphicon-briefcase"> </i><a href="tel:+493641930997"> +49 (0)3641 9-30997</a>
+									<i class="fa fa-search-plus" aria-hidden="true"></i> </i><a href="tel:+493641930997"> +49 (0)3641 9-30997 (Fax)</a>
 								</div></li>
 							<li><div class="email">
-									<i class="glyphicon glyphicon-envelope"> </i>
+									<i class="fa fa-envelope-o"> </i>
 									redaktion@akruetzel.de
 								</div></li>
 						</ul>
 					</address>
 				</div>
-				
+
 				<div class="col-sm-6"> </div>
 
 			</div>
@@ -45,20 +45,20 @@
 					</ul>
 					<div class="col-xs-2"> </div>
 			</div>
-		 
+
 			<div class="col-sm-12 row">
 				<div class="col-sm-4"> </div>
 				<div class="col-xs-12 col-sm-6 h5 center-block">
 					<a href="<?php bloginfo('url'); ?>/?page_id=18" title="Kontakt">Kontakt</a> |
-					<a href="<?php bloginfo('url'); ?>/?page_id=3649" title="Impressum">Impressum</a> | 
-					<a href="<?php bloginfo('url'); ?>/?page_id=3649" title="Datenschutz">Datenschutz</a> | 
+					<a href="<?php bloginfo('url'); ?>/?page_id=3649" title="Impressum">Impressum</a> |
+					<a href="<?php bloginfo('url'); ?>/?page_id=3649" title="Datenschutz">Datenschutz</a> |
 					<a href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
 				</div>
 				<div class="col-sm-2"> </div>
 			</div>
 
 		</div>
-			
+
 	<div class="col-sm-1"> </div>
 
 		</div>
@@ -70,7 +70,7 @@
 	 * (Hardcode)
 	 */
 	 ?>
-	
+
 	<!-- Piwik -->
 	<script type="text/javascript">
 		var _paq = _paq || [];
@@ -87,11 +87,11 @@
 			g.defer = true;
 			g.src = u + 'piwik.js';
 			s.parentNode.insertBefore(g, s);
-		})(); 
+		})();
 	</script>
 	<noscript><p><img src="https://stats.stura.uni-jena.de/piwik.php?idsite=12" style="border:0;" alt="piwik" title="piwik"/></p></noscript>
 	<!-- End Piwik Code -->
-	
+
 	<?php wp_footer(); ?>
   </body>
 </html>
