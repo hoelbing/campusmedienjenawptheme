@@ -1,13 +1,16 @@
-/*============================================================================
-		GLOBAL Header  :: Start
-============================================================================*/
+/* ============================================================================
+    GLOBAL Header  :: Start
+   ============================================================================ */
 
 // Search form
-.form-search
- {
-	padding: $navbar-form-padding;
+.form-search {
+  padding: $navbar-form-padding;
+  input {
+    height: 39px;
+  }
 
-	@media (min-width: $screen-sm-min) {
-		padding: $navbar-form-padding 0 ;
-	}
- }
+  //
+  @media (min-width: $screen-sm-min) {
+    padding: $navbar-form-padding 0;
+  }
+}
