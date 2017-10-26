@@ -9,8 +9,10 @@
     height: 39px;
   }
 
-  //
-  @media (min-width: $screen-sm-min) {
+  // sm
+  @include media-breakpoint-up(sm) {
     padding: $navbar-form-padding 0;
+
+    @include make-col(3);
   }
 }

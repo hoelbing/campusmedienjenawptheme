@@ -12,7 +12,7 @@
 	<div class="" id="global-main-content">
 		<div class="content content-single singlePadTop">
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'content', 'page', get_post_format() ); ?>
+			<?php get_template_part( 'content-index', 'page', get_post_format() ); ?>
 			<?php endwhile; else: ?>
 			<p><?php _e('Diese Seite gibt es nicht :('); ?></p>
 			<?php endif; ?>

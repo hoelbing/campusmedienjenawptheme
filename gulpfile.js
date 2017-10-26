@@ -12,12 +12,11 @@ requireDir('./tasks');
 // dieser Task sollte waehrend der Entwicklung immer laufen
 // Watch task
 gulp.task('watch', function () {
-  gulp.watch('./src/sass/**/*.scss');
-  gulp.watch('./src/js/**/*.js');
+  gulp.watch('./src/sass/**/*.scss', ['styles']);
 });
 
-// final step
+// final step  
 // gulp.task - 'build'
 gulp.task('build', ['lint-css', 'clean:build'], function () {
-  gulp.start(['copy', 'styles-min', 'sassdoc']); // starts only after 'lint-css' and 'clean:build'
+  gulp.start(['copy', 'styles', 'sassdoc']); // starts only after 'lint-css' and 'clean:build'
 });

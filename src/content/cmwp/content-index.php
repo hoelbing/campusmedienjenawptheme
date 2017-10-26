@@ -21,6 +21,7 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 		<section class="post-top">
 
 			<?php
+				/*
 				$columnClassForContent = "";
 				if ( has_post_thumbnail() ) {
 					$asideClassForThumbnail = "";
@@ -40,7 +41,7 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 					echo '<aside class="' . $asideClassForThumbnail . '"><a href="' . get_the_permalink() . '" title="' .'">';
 					the_post_thumbnail($postClassForThumbnail);
 					echo '</a></aside>';
-				}
+				} */
 			?>
 			<header class="post-header <?php echo $columnClassForContent; ?>">
 				<span class="post-title">

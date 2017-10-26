@@ -5,7 +5,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
 
 // Input - Files / Folder
-var inputStyle = './src/sass/eah-jena-style.scss';
+var inputStyle = './src/sass/style.scss';
 var inputdoc = './src/sass/**/*.scss';
 
 // Output - Folder

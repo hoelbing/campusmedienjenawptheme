@@ -1,10 +1,18 @@
 /* ============================================================================
 		Nav  :: Start
    ============================================================================ */
+//
+.navbar {
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
-// 
-.nav {
+/* c
+nav {
   .navbar {
+    margin-bottom: 14px;
+    min-height: 50px;
+    height: 50px;
     .navbar-brand {
       padding: 0;
       height: 0;
@@ -34,8 +42,8 @@
     }
     .navbar-header {
       padding: $space-sm;
-
-      @media (min-width: $screen-sm) {
+      // sm
+      @include media-breakpoint-up(sm) {
         padding: 0 $space-md;
       }
       .navbar-toggle {
@@ -44,45 +52,7 @@
       }
     }
   }
-}
-//
-.navbar-header .navbar-brand,
-nav.navbar li a {
-  &.current {
-    background: $gray-dark;
-    color: $white;
-    &:hover,
-    &:active {
-      background: $gray-dark !important;
-      color: $white !important;
-    }
-  }
-  img.blog-image {
-    width: 35px;
-    margin-right: $space-xs;
-  }
-}
 
-/* Lower Navbar */
-// GLOBAL COLOR OVERWRITES
-&.blog-2 {
-  nav.navbar-lower ul.navbar-nav > li.current-menu-item > a {
-    @include box-shadow(inset 0 -3px 0 $akruetzelblau);
-  }
-}
-&.blog-4 {
-  nav.navbar-lower ul.navbar-nav > li.current-menu-item > a {
-    @include box-shadow(inset 0 -3px 0 $campustvrot);
-  }
-}
-&.blog-5 {
-  nav.navbar-lower ul.navbar-nav > li.current-menu-item > a {
-    @include box-shadow(inset 0 -3px 0 $campusradiogelb);
-  }
-}
-
-//
-.nav {
   // Top Navbar
   .navbar-primary {
     border: none;
@@ -92,17 +62,17 @@ nav.navbar li a {
     .navbar-nav {
       li {
         a {
-          @media (min-width: $screen-xs-min) {
+          @include media-breakpoint-up(xs) {
             padding: ($navbar-height/2);
             padding-left: $space-md;
           }
           //
-          @media (min-width: $screen-sm-min) {
+          @include media-breakpoint-up(sm) {
             padding-left: $space-sm;
             padding-right: $space-sm;
           }
           //
-          @media (min-width: $screen-md-min) {
+          @include media-breakpoint-up(md) {
             padding-left: $space-md;
             padding-right: $space-md;
           }
@@ -111,12 +81,13 @@ nav.navbar li a {
     }
 
     //
-    @media (min-width: $screen-sm-min) {
+    @include media-breakpoint-up(sm) {
       margin-top: ($navbar-height + 10px);// + ($navbar-height * 0.5));
       margin-bottom: -$navbar-height;
     }
   }
 }
+//
 ul.navbar-nav {
   margin: 0;
   //
@@ -167,3 +138,39 @@ ul.navbar-nav {
     }
   }
 }
+
+.navbar-header .navbar-brand,
+nav.navbar li a {
+  &.current {
+    background: $gray-dark;
+    color: $white;
+    &:hover,
+    &:active {
+      background: $gray-dark !important;
+      color: $white !important;
+    }
+  }
+  img.blog-image {
+    width: 35px;
+    margin-right: $space-xs;
+  }
+}
+*/
+
+/* Lower Navbar
+// GLOBAL COLOR OVERWRITES
+.blog-2 {
+  nav.navbar-lower ul.navbar-nav > li.current-menu-item > a {
+    @include box-shadow(inset 0 -3px 0 $akruetzelblau);
+  }
+}
+.blog-4 {
+  nav.navbar-lower ul.navbar-nav > li.current-menu-item > a {
+    @include box-shadow(inset 0 -3px 0 $campustvrot);
+  }
+}
+.blog-5 {
+  nav.navbar-lower ul.navbar-nav > li.current-menu-item > a {
+    @include box-shadow(inset 0 -3px 0 $campusradiogelb);
+  }
+} */

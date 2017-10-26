@@ -53,8 +53,8 @@ get_header();
                                 global $more;
                                 $more = 0;
 */
-if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content', get_post_format() ); ?>
+		if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<?php get_template_part( 'content-index', get_post_format() ); ?>
 					<?php endwhile; else: ?>
   					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 					<?php endif; ?>
@@ -80,9 +80,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		?>
 		</div>
 		<!-- /.global-main-content -->
-			<div class="" id="global-sidebar">
-				<?php get_sidebar(); ?>
-			</div><!-- /.global-sidebar -->
+
+		<?php get_sidebar(); ?>
+		<!-- /.global-sidebar -->
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 <?php get_footer(); ?>

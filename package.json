@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "gulp clean",
+    "watch": "gulp watch",
     "build": "gulp build"
   },
   "author": "Carsten Hoelbing",

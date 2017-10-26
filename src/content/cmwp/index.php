@@ -18,7 +18,7 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 		<div class="" id="global-main-content">
 			<div class="content">
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content', get_post_format() ); ?>
+					<?php // get_template_part( 'content-index', get_post_format() ); ?>
 					<?php endwhile; else: ?>
   					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
  					<?php endif; ?>
@@ -39,15 +39,15 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 			else {
 				# code...
 				?>
-					<div id="nav-post"><?php posts_nav_link('  ', __('<button class="button">« Neuere Beiträge</button>'), __('<button class="button">Ältere Beiträge »</button>')); ?></div>
+					<div id="nav-post">
+						<?php posts_nav_link('  ', __('<button class="button">« Neuere Beiträge</button>'), __('<button class="button">Ältere Beiträge »</button>')); ?>
+					</div>
 				<?php
 			}
 		?>
 		</div>
 		<!-- /.global-main-content -->
-		<div class="" id="global-sidebar">
-				<?php get_sidebar(); ?>
-			</div>
+			<?php get_sidebar(); ?>
 		<!-- /.global-sidebar -->
 	</div>
 	<!-- /.row -->

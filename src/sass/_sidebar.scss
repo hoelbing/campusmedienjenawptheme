@@ -4,12 +4,15 @@
 //
 #global-sidebar {
   padding-top: 14px;
-
-  //
-  @include make-sm-column(3);
-  //
-  @media (min-width: $screen-sm-min) {
+  // xs
+  @include media-breakpoint-up(xs) {
+    @include make-col(12);
+  }
+  // sm
+  @include media-breakpoint-up(sm) {
     padding-left: $space-sm;
+
+    @include make-col(3);
   }
 
   // Widgets
