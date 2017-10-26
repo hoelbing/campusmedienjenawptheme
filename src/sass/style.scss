@@ -4,7 +4,7 @@ Theme Description: A responsive theme for Campusmedien Jena.
 Author: Carsten Hoelbing
 URI: https://www.campusmedien-jena.de/
 Version: 3
-Tags: campusmedien, jena, responsive, clean, multimedia, white, light
+Tags: campusmedien, jena, responsive, clean, multimedia, white, light, Bootstrap 4
 */
 $templateFolderName:'cmwp';
 
@@ -82,3 +82,4 @@ $FontPathSourceSansPro: '/wp-content/themes/#{$templateFolderName}/assets/source
 @import 'sidebar';
 @import 'socialbuttons';
 @import 'weeklyschedule';
+@import 'utilities';

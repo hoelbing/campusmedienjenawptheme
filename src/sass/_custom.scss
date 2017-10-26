@@ -22,26 +22,6 @@ h2 {
   margin: 0 0 $space-lg 0;
 }
 
-// abstand nach oben
-.paddingBot10 {
-  padding-bottom: $space-xs;
-  // sm
-  @include media-breakpoint-up(sm) {
-    padding-bottom: $space-md;
-  }
-}
-.singlePadTop {
-  padding-top: $space-xs;
-
-  // md
-  @include media-breakpoint-up(md) {
-    padding-top: $space-lg;
-  }
-  // lg
-  @include media-breakpoint-up(lg) {
-    padding-top: $space-lg*2;
-  }
-}
 //
 #global-main-content {
   .content {

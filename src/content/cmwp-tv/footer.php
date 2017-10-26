@@ -1,104 +1,116 @@
-    <footer id="global-footer">
-		<div class="container">
-	<div class="col-sm-1"> </div>
-	
-	<div class="container col-sm-10 bg-white text-color-grey">
-			
-			<div class="col-xs-12">
-				
-				<div class="col-sm-3"> </div>
-				
-				<div class="col-xs-12 col-sm-4">
-					<!-- <div class="h4">Anschrift</div> -->
-					<address>
-						<h1><div class="h4 text-color-grey"><?php bloginfo('name'); ?></div></h1>
-						<ul class="list-unstyled h5">
-							<li><div class="note">Ernst-Abbe-Hochschule Jena</div></li>
-							<li><div class="note">Carl-Zeiss-Promenade 10</div></li>
-							<li><div class="zip">07745 Jena</div></li>
-							<li><div class="tel">
-									<i class="glyphicon glyphicon-earphone"> </i><a href="tel:+493641930988"> +49 (0)3641 9-30988</a>
-								</div></li>
-							<li><div class="email">
-									<i class="glyphicon glyphicon-envelope"> </i>
-									redaktion@campustv-jena.de
-								</div></li>
-						</ul>
-					</address>
-				</div>
-				
-				<div class="col-xs-12 col-sm-4">
-					<h3><div class="h4 text-color-grey">Freunde und F&ouml;rderer</div></h3>
-					<ul class="list-unstyled h5 text-decoration-none">
-						<li></li>
-						<li><a href="http://stura.eah-jena.de/" target="_blank" title="EAH-Stura">EAH-Stura</a></li>
-						<li><a href="http://www.stura.uni-jena.de/" target="_blank" title="FSU-Stura">UNI-Stura</a></li>
-						<li><a href="http://www.jenatv.de/" target="_blank" title="Radio OKJ">JenaTV</a></li>
-						<li><a href="http://www.eah-jena.de/" target="_blank" title="EAH-Jena">EAH Jena</a></li>
-						<li><a href="https://www.fsr-kowi.de/" target="_blank" title="FSR KoWi Jena">FSR KoWi Jena</a></li>
-					</ul>
-				</div>
-				
-				<div class="col-sm-2"> </div>
+<footer id="global-footer">
+	<div class="container">
 
-			</div>
+		<div class="footer-info">
 
-			<div class="col-xs-12 row">
-				<div class="col-xs-2"> </div>
-					<ul class="list-unstyled col-sm-8 h6">
-						<li class="center-block">Copyright &copy; <?php echo date("Y") ?> <a href="<?php home_url(); ?>" title="Home"><?php bloginfo('name'); ?></a>. All rights reserved.
-							<?php echo get_template() ?> Theme by <a href="http://www.hoelbing.net/" title="Carsten Hoelbing">Carsten H&ouml;lbing</a>
-						</li>
-					</ul>
-					<div class="col-xs-2"> </div>
-			</div>
-		 
-			<div class="col-sm-12 row">
-				<div class="col-sm-4"> </div>
-				<div class="col-xs-12 col-sm-6 h5 center-block">
-					<a href="<?php bloginfo('url'); ?>/kontakt/" title="Kontakt">Kontakt</a> |
-					<a href="<?php bloginfo('url'); ?>/impressum/" title="Impressum">Impressum</a> | 
-					<a href="<?php bloginfo('url'); ?>/impressum/" title="Datenschutz">Datenschutz</a> | 
-					<a href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
-				</div>
-				<div class="col-sm-2"> </div>
-			</div>
+			<div class="footer-adress">
+				<address>
+					<div class="footer-title bloginfo-name">
+						<?php bloginfo('name'); ?>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li>
+                          <div class="note">Ernst-Abbe-Hochschule Jena</div>
+                        </li>
+                        <li>
+                          <div class="note">Carl-Zeiss-Promenade 10</div>
+                        </li>
+                        <li>
+                          <div class="zip">07745 Jena</div>
+                        </li>
+                        <li>
+													<div class="tel">
+														<i class="fa fa-phone" aria-hidden="true"> </i>
+														<a href="tel:+493641930988"> +49 (0)3641 9-30988</a>
+													</div>
+                        </li>
+                        <li>
+													<div class="email">
+														<i class="fa fa-envelope-o" aria-hidden="true"> </i>
+														redaktion@campustv-jena.de
+													</div>
+                        </li>
+                    </ul>
+                </address>
+            </div>
 
-		</div>
-			
-	<div class="col-sm-1"> </div>
+            <div class="footer-sponsor">
+                <div class="footer-title">Freunde und F&ouml;rderer</div>
+                <ul class="list-unstyled text-decoration-none">
+                    <li></li>
+                    <li>
+                        <a href="http://stura.eah-jena.de/" target="_blank" title="EAH-Stura">EAH-Stura</a>
+                    </li>
+                    <li>
+                        <a href="http://www.stura.uni-jena.de/" target="_blank" title="FSU-Stura">UNI-Stura</a>
+                    </li>
+                    <li>
+                    <a href="http://www.jenatv.de/" target="_blank" title="Radio OKJ">JenaTV</a>
+                    </li>
+                    <li>
+                        <a href="http://www.eah-jena.de/" target="_blank" title="EAH-Jena">EAH Jena</a>
+                    </li>
+                    <li>
+                        <a href="https://www.fsr-kowi.de/" target="_blank" title="FSR KoWi Jena">FSR KoWi Jena</a>
+                    </li>
+                </ul>
+            </div>
 
-		</div>
-	</footer>
+        </div>
 
-	<?php
-	/**
-	 * Code from Piwik
-	 * (Hardcode)
-	 */
-	 ?>
-	
-	<!-- Piwik -->
-	<script type="text/javascript">
-		var _paq = _paq || [];
-		_paq.push(["setDoNotTrack", true]);
-		_paq.push(['trackPageView']);
-		_paq.push(['enableLinkTracking']);
-		(function() {
-			var u = "//stats.stura.uni-jena.de/";
-			_paq.push(['setTrackerUrl', u + 'piwik.php']);
-			_paq.push(['setSiteId', 6]);
-			var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-			g.type = 'text/javascript';
-			g.async = true;
-			g.defer = true;
-			g.src = u + 'piwik.js';
-			s.parentNode.insertBefore(g, s);
-		})(); 
-	</script>
-	<noscript><p><img src="https://stats.stura.uni-jena.de/piwik.php?idsite=12" style="border:0;" alt="piwik" title="piwik"/></p></noscript>
-	<!-- End Piwik Code -->
-	
-	<?php wp_footer(); ?>
-  </body>
-</html>
+        <div class="footer-copyright">
+            Copyright &copy;
+            <?php echo date("Y") ?>
+            <a href="<?php home_url(); ?>" title="Home">
+                <?php bloginfo('name'); ?>
+            </a>. All rights reserved.
+            <?php echo get_template() ?> Theme by
+            <a href="http://www.hoelbing.net/" title="Carsten Hoelbing">Carsten H&ouml;lbing</a>
+        </div>
+
+        <div class="footer-toIntern">
+            <a href="<?php bloginfo('url'); ?>/kontakt/" title="Kontakt">Kontakt</a> |
+            <a href="<?php bloginfo('url'); ?>/impressum/" title="Impressum">Impressum</a> |
+            <a href="<?php bloginfo('url'); ?>/impressum/" title="Datenschutz">Datenschutz</a> |
+            <a href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
+        </div>
+
+    </div>
+</footer>
+
+<?php
+    /**
+     * Code from Piwik
+     * (Hardcode)
+     */
+        ?>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(["setDoNotTrack", true]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "//stats.stura.uni-jena.de/";
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['setSiteId', 6]);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'piwik.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <noscript>
+        <p>
+            <img src="https://stats.stura.uni-jena.de/piwik.php?idsite=6" style="border:0;" alt="piwik" title="piwik" />
+        </p>
+    </noscript>
+    <!-- End Piwik Code -->
+
+    <?php wp_footer(); ?>
+    </body>
+
+    </html>
