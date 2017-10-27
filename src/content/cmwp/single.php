@@ -17,21 +17,27 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 
 ?>
 
-<div class="container container-main singlePadTop">
-	<div class="full-width-content" id="global-main-content">
+<div class="container container-main">
+	<div class="row">
+		<div class="" id="global-main-content-full-width">
 		<div class="content content-single">
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'content', 'single', get_post_format() ); ?>
-			<?php endwhile; else: ?>
-			<p><?php _e('Diese Seite gibt es nicht :('); ?></p>
-			<?php endif; ?>
+					<?php 
+						if (have_posts()) :
+							while (have_posts()) :
+								the_post();
+								get_template_part( 'content-single', 'single', get_post_format() );
+							endwhile; else : ?>
+					<p>
+						<?php _e('Diese Seite gibt es nicht :('); ?>
+					</p>
+					<?php endif; ?>
+				</div>
+			<!-- /.content -->
 		</div>
-		<!-- /.content -->
+		<!-- /.global-main-content -->
+
+		<?php comments_template( '', true ); ?>
 	</div>
-	<!-- /.global-main-content -->
-
-	<?php comments_template( '', true ); ?>
-
 </div>
 <!-- /.container -->
 
