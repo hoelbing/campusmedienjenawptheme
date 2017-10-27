@@ -22,7 +22,7 @@
 						the_post_thumbnail ( 'full-width-cinema-header' );
 					// if not
 					} else {
-            the_post_thumbnail( $single_size_thumbnail, array('class'=> "post-img center-block", 'alt' => "Bild" ) );
+            the_post_thumbnail( $single_size_thumbnail, array('class'=> "post-img center-block img-fluid", 'alt' => "Bild" ) );
 					}
           if ($copyrightImage !=""){
 					?>
@@ -51,7 +51,7 @@
 
     <?php
     // has a post one or more tags then create a 'section'-tag
-    the_tags('<section class="post-tags '.$columnClassForContent.'"><i class="glyphicon glyphicon-tag"></i> ', ", ", '</section>');
+    the_tags('<section class="post-tags '.$columnClassForContent.'"><i class="fa fa-tags" aria-hidden="true"></i> ', ", ", '</section>');
     ?>
 		</section>
 

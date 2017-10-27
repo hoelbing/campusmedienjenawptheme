@@ -21,42 +21,44 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 		<section class="post-top">
 
 			<?php
-				/*
+
 				$columnClassForContent = "";
 				if ( has_post_thumbnail() ) {
 					$asideClassForThumbnail = "";
-					$postClassForThumbnail = "";
+					$postClassForThumbnail = "img-fluid";
 
 					$size_thumbnail = get_post_meta(get_the_ID(), 'big_thumbnail', true);
 
 					if ( $size_thumbnail == 'yes' ) {
 						$asideClassForThumbnail = "post-thumbnail full-width";
-						$postClassForThumbnail = "full-width-cinema-header";
+						$postClassForThumbnail = "full-width-cinema-header img-fluid";
 					} else {
 						$columnClassForContent = "split-screen";
 						$asideClassForThumbnail = "post-thumbnail split-thumbnail";
-						$postClassForThumbnail = "default_max-thumbnail'";
+						$postClassForThumbnail = "default_max-thumbnail img-fluid";
 					}
 
 					echo '<aside class="' . $asideClassForThumbnail . '"><a href="' . get_the_permalink() . '" title="' .'">';
 					the_post_thumbnail($postClassForThumbnail);
 					echo '</a></aside>';
-				} */
+				}
 			?>
-			<header class="post-header <?php echo $columnClassForContent; ?>">
-				<span class="post-title">
-					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-				</span>
-			</header>
+			<div class="<?php echo $columnClassForContent; ?>">
+				<header class="post-header ">
+					<span class="post-title">
+						<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+					</span>
+				</header>
 
-			<section class="post-content <?php echo $columnClassForContent; ?>" aria-label="content">
-				<?php echo the_content('weiterlesen...'); ?>
-			</section>
+				<section class="post-content" aria-label="content">
+					<?php echo the_content('weiterlesen...'); ?>
+				</section>
 
-			<?php
-			// has a post tags then show this as a 'section'-tag
-			the_tags('<section class="post-tags '.$columnClassForContent.'"><i class="glyphicon glyphicon-tag"></i> ', ", ", '</section>');
-			?>
+				<?php
+				// has a post tags then show this as a 'section'-tag
+				the_tags('<section class="post-tags"><i class="fa fa-tags" aria-hidden="true"></i> ', ", ", '</section>');
+				?>
+			<div>
 		</section>
 
 		<!-- META -->

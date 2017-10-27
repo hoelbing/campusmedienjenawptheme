@@ -6,6 +6,8 @@
     padding-bottom: $space-md;
   }
 }
+
+/*
 .singlePadTop {
   padding-top: $space-xs;
 
@@ -17,7 +19,7 @@
   @include media-breakpoint-up(lg) {
     padding-top: $space-lg*2;
   }
-}
+} */
 // text
 .text-color-grey {
   color: $gray;

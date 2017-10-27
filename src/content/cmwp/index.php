@@ -18,7 +18,7 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 		<div class="" id="global-main-content">
 			<div class="content">
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php // get_template_part( 'content-index', get_post_format() ); ?>
+					<?php get_template_part( 'content-index', get_post_format() ); ?>
 					<?php endwhile; else: ?>
   					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
  					<?php endif; ?>
@@ -29,7 +29,6 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 			//das WP Plugin 'wp_pagenavi' einfuegen (Seitennavigation)
 			if (function_exists('wp_pagenavi'))
 			{
-
 							echo '<div id="pagenavi" class="col-xs-12">';
 							wp_pagenavi();
 							echo '</div><!-- END pagenavi-->';

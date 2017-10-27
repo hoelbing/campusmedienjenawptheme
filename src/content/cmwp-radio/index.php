@@ -31,10 +31,11 @@ get_header();
 							<section class="post-top">
 								<section class="post-content">
 											<div class="border-bottom-grey">
-												<a href="<?php home_url(); ?>/interaktiv/webplayer/"> <img
-													class="header-image" alt="CampusRadio-Jena Logo"
-													title="CampusRadio-Jena Logo"
-													src="<?php echo bloginfo('template_directory'); ?>/img/livestream_icon_eule.png">
+												<a href="<?php home_url(); ?>/interaktiv/webplayer/"> 
+													<img
+														class="header-image img-fluid" alt="CampusRadio-Jena Logo"
+														title="CampusRadio-Jena Logo"
+														src="<?php echo get_stylesheet_directory_uri(); ?>/img/livestream_icon_eule.png">
 												</a>
 											</div>
 								</section>

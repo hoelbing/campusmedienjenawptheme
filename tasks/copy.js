@@ -12,9 +12,9 @@ gulp.task('copy:content', function () {
   .pipe(gulp.dest('./build/'));
 });
 
-// gulp.task - 'copy:bootstrapfont'
-gulp.task('copy:bootstrapfont', function () {
-  return gulp.src('./node_modules/bootstrap-sass/assets/fonts/bootstrap/**')
+// gulp.task - 'copy:bootstrapjs'
+gulp.task('copy:bootstrapjs', function () {
+  return gulp.src('./node_modules/bootstrap/dist/js/**')
   .pipe(gulp.dest('./build/cmwp/assets/bootstrap/js'));
 });
 
@@ -27,12 +27,17 @@ gulp.task('copy:fontawesomefonts', function () {
 // gulp.task - 'copy:fontsourcesanspro'
 gulp.task('copy:fontsourcesanspro', function () {
   return gulp.src('./node_modules/npm-font-source-sans-pro/**')
-  .pipe(gulp.dest('./build/cmwp/assets/source-sans-pro/fonts/'));
+  .pipe(gulp.dest('./build/cmwp/assets/source-sans-pro/'));
 });
 // gulp.task - 'copy:jquery'
 gulp.task('copy:jquery', function () {
   return gulp.src('./node_modules/jquery/dist/jquery.min.js')
-  .pipe(gulp.dest('./build/cmwp/assets/jquery/'));
+  .pipe(gulp.dest('./build/cmwp/assets/jquery/js/'));
+});
+// gulp.task - 'copy:popper'
+gulp.task('copy:popper', function () {
+  return gulp.src('./node_modules/popper.js/dist/popper.min.js')
+  .pipe(gulp.dest('./build/cmwp/assets/popper.js/js/'));
 });
 
 // gulp.task - 'copy:cookieconsent'
@@ -46,7 +51,8 @@ gulp.task('copy', ['copy:content'], function () {
   gulp.start(
     [
       'copy:content',
-      'copy:bootstrapfont',
+      'copy:bootstrapjs',
+      'copy:popper',
       'copy:fontawesomefonts',
       'copy:fontsourcesanspro',
       'copy:jquery',

@@ -46,7 +46,7 @@ $blog_id_origin = get_current_blog_id();
 			        <?php $pdf_link = get_field('pdf_document');?>
 			        <a href="<?php echo $pdf_link['url']; ?>" class="" alt="Link zum Download/Lesen" title="Link zum Download/Lesen" /><span class="text-danger">PDF-Link</span></a>
 							<br><br>
-			        <?php the_tags('<div class="tags-post"><i class="glyphicon glyphicon-tag"></i> ', ", ", '</div>'); ?>
+			        <?php the_tags('<div class="tags-post"><i class="fa fa-tags" aria-hidden="true"></i> ', ", ", '</div>'); ?>
 			      </section>
 					</div>
 

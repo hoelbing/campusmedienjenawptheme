@@ -24,22 +24,24 @@ h2 {
 
 //
 #global-main-content {
-  .content {
-    // xs
-    @include media-breakpoint-up(xs) {
-      @include make-col(12);
-    }
+  // xs
+  @include media-breakpoint-up(xs) {
+    @include make-col(12);
+  }
 
-    @include media-breakpoint-up(sm) {
-      @include make-col(9);
-    }
+  @include media-breakpoint-up(sm) {
+    @include make-col(9);
+  }
+
+  /*
+  .content {
   }
   .full-width-content {
     // xs
     @include media-breakpoint-up(xs) {
       @include make-col(12);
     }
-  }
+  } */
 }
 
 // container
@@ -300,4 +302,5 @@ h2 {
 }
 .wp-pagenavi {
   padding-top: $space-md;
+  margin-bottom: $space-md;
 }

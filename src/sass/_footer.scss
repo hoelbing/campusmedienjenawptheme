@@ -5,6 +5,12 @@
 #global-footer {
   background-color: $gray;
   color: $white;
+  padding: $space-md;
+
+  @include media-breakpoint-up(sm) {
+    padding: 0;
+    padding-top: $space-md;
+  }
   a {
     color: $white;
   }
