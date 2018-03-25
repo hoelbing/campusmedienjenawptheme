@@ -5,7 +5,7 @@
 @ini_set( 'max_execution_time', '300' );
 
 // Register Custom Navigation Walker
-require_once('wp_bootstrap_navwalker.php');
+require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 
 /* Custom-Logo für Login-Seite */
 function my_custom_login_logo() {
@@ -18,9 +18,11 @@ remove_action('wp_head', 'wp_generator');
 
 /* Blog Logo */
 function themeslug_theme_customizer( $wp_customize ) {
-	// Logo
+	// Logo// Register Custom Navigation Walker
+
     $wp_customize->add_section( 'themeslug_theme_section' , array(
-		'title'       => __( 'Theme Einstellungen', 'themeslug' ),
+		'title' // Register Custom Navigation Walker
+    => __( 'Theme Einstellungen', 'themeslug' ),
 		'priority'    => 30,
 		'description' => 'Setze die individuellen Einstellungen für das Medium.',
 	) );
@@ -330,7 +332,7 @@ function add_featured_image_display_settings( $content, $post_id ) {
   $content .= "<hr/>";
 
   // option - copyright_image
-  $field_id    = 'copyright_image';
+/*  $field_id    = 'copyright_image';
 	$field_value = esc_attr( get_post_meta( $post_id, $field_id, true ) );
 	$field_text  = esc_html__( 'Copyright Angaben zum Bild', 'cmwp' );
   $field_placeholder_text  = esc_html__( 'Name oder Webseite', 'cmwp' );
@@ -339,9 +341,10 @@ function add_featured_image_display_settings( $content, $post_id ) {
 	    '<p><label for="%1$s">%5$s<br/><input type="text" name="%1$s" id="%1$s" placeholder="%2$s" value="%3$s" %4$s> </label></p>',
 	    $field_id, $field_placeholder_text, $field_value, $field_state, $field_text
 	);
-  /*<input type="text" name="copyright_image" id="copyright_image" placeholder="Name oder Webseite" value="<?php echo $value_copyright_image; ?>"/>*/
-  $content .= $field_label ."<hr/>";
-
+  //<input type="text" name="copyright_image" id="copyright_image" placeholder="Name oder Webseite" value="<?php echo $value_copyright_image; ?>"/>
+  $content .= $field_label ;
+*/
+  $content .= "<hr/>";
   $content .= "<p>". esc_html__( 'Startseite/Übersicht', 'cmwp' )."<br/>";
   // option - big_thumbnail
 	$field_id    = 'big_thumbnail';
@@ -486,15 +489,12 @@ add_action( 'save_post', 'save_thumbnail_option', 10, 3 );
  */
 function cmwp_scripts() {
 	wp_dequeue_script('jquery');
-	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/jquery/js/jquery.min.js', array(), '', true );
-	wp_enqueue_script( 'popperjs', get_template_directory_uri() . '/assets/popper.js/js/popper.min.js', array(), '', true );
-  wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array(), '', true );
-	// wp_enqueue_script( 'all', get_template_directory_uri() . '/js/all.js', array(), '', true );
+  wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/jquery/js/jquery.slim.js', array(), '', true );
+	wp_enqueue_script( 'popperjs', get_template_directory_uri() . '/assets/popper.js/js/umd/popper.min.js', array('jquery'), '', true );
+  wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array('jquery','popperjs'), '', true );
 }
 
 add_action( 'init', 'cmwp_scripts' );
-
-// wp_register_script( 'masonry', get_template_directory_uri() . '/js/masonry.pkgd.min.js' );
 
 
 /* WPBROADCAST MANIPULATION, dirty but necessary */

@@ -10,8 +10,8 @@
 
 	<div class="container container-main">
 		<div class="row">
-			<div class="" id="global-main-content">
-				<div class="content content-single">
+			<div id="global-main-content">
+				<div class="content">
 					<?php 
 						if (have_posts()) :
 							while (have_posts()) :
@@ -19,7 +19,7 @@
 								get_template_part( 'content-page', 'page', get_post_format() );
 							endwhile; else : ?>
 					<p>
-						<?php _e('Diese Seite gibt es nicht :('); ?>
+						<?php _e('Ups, da ging irgendwas nicht. Diese Seite gibt es nicht :('); ?>
 					</p>
 					<?php endif; ?>
 				</div>

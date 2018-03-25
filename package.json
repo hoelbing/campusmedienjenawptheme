@@ -11,26 +11,26 @@
   "author": "Carsten Hoelbing",
   "license": "MIT",
   "dependencies": {
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap": "^4.0.0",
     "cookieconsent": "^3.0.4",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.3.1",
     "npm-font-source-sans-pro": "^1.0.2",
-    "popper.js": "^1.12.6",
+    "popper.js": "^1.12.9",
     "sassdoc": "^2.3.0"
   },
   "devDependencies": {
-    "@types/jquery": "^3.2.12",
-    "@types/node": "^6.0.88",
+    "@types/jquery": "^3.3.0",
+    "@types/node": "^6.0.96",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-minify": "^1.0.0",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-stylelint": "^4.0.0",
     "node-sass": "4.5.3",
     "require-dir": "^0.3.2",
-    "stylelint": "^8.1.1",
+    "stylelint": "^8.4.0",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-scss": "^1.5.2"
   }

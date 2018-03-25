@@ -10,8 +10,8 @@
 
 	<div class="container container-main">
 		<div class="row">
-			<div class="" id="global-main-content-full-width">
-				<div class="content content-single">
+			<div class="content" id="global-main-content-full-width">
+				<div class="content-single">
 					<?php 
 						if (have_posts()) :
 							while (have_posts()) :

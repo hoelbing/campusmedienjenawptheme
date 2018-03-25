@@ -31,12 +31,12 @@ gulp.task('copy:fontsourcesanspro', function () {
 });
 // gulp.task - 'copy:jquery'
 gulp.task('copy:jquery', function () {
-  return gulp.src('./node_modules/jquery/dist/jquery.min.js')
+  return gulp.src('./node_modules/jquery/dist/**')
   .pipe(gulp.dest('./build/cmwp/assets/jquery/js/'));
 });
 // gulp.task - 'copy:popper'
 gulp.task('copy:popper', function () {
-  return gulp.src('./node_modules/popper.js/dist/popper.min.js')
+  return gulp.src('./node_modules/popper.js/dist/**')
   .pipe(gulp.dest('./build/cmwp/assets/popper.js/js/'));
 });
 

@@ -14,7 +14,7 @@
 		<section class="post-top">
 				<?php if (function_exists('has_post_thumbnail') && has_post_thumbnail()):?>
 
-				<section class="<?php if ($cinemaHeader) echo 'container-fluid'; else echo 'container'; ?>">
+				<section class="<?php if ($cinemaHeader) echo 'container-fluid'; else echo 'container'; ?> text-center">
 					<aside class=" post-header <?php if($hasVideo) echo ' dark'; ?>">
 					<?php
 					// is it a video
@@ -22,7 +22,7 @@
 						the_post_thumbnail ( 'full-width-cinema-header' );
 					// if not
 					} else {
-            the_post_thumbnail( $single_size_thumbnail, array('class'=> "post-img center-block img-fluid", 'alt' => "Bild" ) );
+            the_post_thumbnail( $single_size_thumbnail, array('class'=> "post-img img-fluid", 'alt' => "Bild" ) );
 					}
           if ($copyrightImage !=""){
 					?>

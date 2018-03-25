@@ -6,21 +6,50 @@
     padding-bottom: $space-md;
   }
 }
-
-/*
-.singlePadTop {
-  padding-top: $space-xs;
-
-  // md
-  @include media-breakpoint-up(md) {
-    padding-top: $space-lg;
-  }
-  // lg
-  @include media-breakpoint-up(lg) {
-    padding-top: $space-lg*2;
-  }
-} */
 // text
 .text-color-grey {
   color: $gray;
+}
+// background color - bright
+.bg-gray-bright {
+  background-color: $bg-gray-bright;
+}
+// background color - dark
+.bg-gray-dark {
+  background-color: $bg-gray-dark;
+}
+.div.aligncenter,
+.aligncenter {
+  display: block;
+  margin: 5px auto;
+  //  margin-top: 5px;
+  //  margin-bottom: 5px;
+  //  margin-left: auto;
+  //  margin-right: auto;
+}
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+a {
+  img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+  }
+  img.alignnone {
+    margin: 5px 20px 20px 0;
+  }
+  img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+  }
+  img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

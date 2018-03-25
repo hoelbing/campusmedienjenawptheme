@@ -80,6 +80,8 @@ $FontPathSourceSansPro: '/wp-content/themes/#{$templateFolderName}/assets/source
 @import 'nav';
 @import 'schreikasten';
 @import 'sidebar';
+@import 'page';
+@import 'plugin';
 @import 'socialbuttons';
 @import 'weeklyschedule';
 @import 'utilities';

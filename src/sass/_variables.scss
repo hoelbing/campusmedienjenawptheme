@@ -21,9 +21,12 @@ $gray-lighter:                      lighten(#000, 90%);
 //
 
 $space-xs:                          3.5px;
-$space-sm:                          7px;
-$space-md:                          14px;
-$space-lg:                          30px;
+$space-sm:                          $space-xs * 2; // 7
+$space-md:                          $space-xs * 4; // 14
+$space-lg:                          $space-xs * 8; // 28
+
+$bg-gray-bright:                    #fff;
+$bg-gray-dark:                      #e5e5e5;
 
 //
 // == BOOTSTRAP VARIABLES

@@ -1,0 +1,25 @@
+.smp-time {
+  // xs
+  @include media-breakpoint-up(xs) {
+    padding: $navbar-form-padding 0 $navbar-form-padding 5px;
+
+    @include make-col(2);
+  }
+}
+.smp-title {
+  // xs
+  @include media-breakpoint-up(xs) {
+    padding: $navbar-form-padding 0;
+
+    @include make-col(5);
+  }
+}
+.smp-artist {
+  padding-left: 5px;
+  // xs
+  @include media-breakpoint-up(xs) {
+    padding: $navbar-form-padding 0;
+
+    @include make-col(5);
+  }
+}

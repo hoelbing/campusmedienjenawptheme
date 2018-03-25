@@ -111,6 +111,7 @@
 	<!-- End Piwik Code -->
 
 	<?php wp_footer(); ?>
+
 	</body>
 
 	</html>
