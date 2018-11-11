@@ -39,6 +39,16 @@ $currentBlogID = get_current_blog_id();
     <header class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
             <div class="container">
+                <button
+                    class="navbar-toggler navbar-toggler-right"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-12"
+                    aria-controls="bs-example-navbar-collapse-12"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation" >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <a class="navbar-brand" href="<?php echo site_url(); ?>">
                     <?php if (get_theme_mod( 'themeslug_logo' )) : ?>
@@ -52,16 +62,6 @@ $currentBlogID = get_current_blog_id();
                     </div>
                     <?php endif; ?>
                 </a>
-                <button
-                    class="navbar-toggler navbar-toggler-right"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1"
-                    aria-controls="bs-example-navbar-collapse-1"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation" >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
                     <?php
                     wp_nav_menu( array(

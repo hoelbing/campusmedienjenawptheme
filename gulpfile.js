@@ -15,8 +15,8 @@ gulp.task('watch', function () {
   gulp.watch('./src/sass/**/*.scss', ['styles']);
 });
 
-// final step  
+// final step
 // gulp.task - 'build'
-gulp.task('build', ['lint-css', 'clean:build'], function () {
+gulp.task('build', ['clean:build'], function () {
   gulp.start(['copy', 'styles', 'sassdoc']); // starts only after 'lint-css' and 'clean:build'
 });
