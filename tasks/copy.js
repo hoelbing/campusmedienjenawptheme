@@ -1,6 +1,5 @@
 // libs
 var gulp = require('gulp');
-var outputStyle = './build/Content/_catalogs/masterpage/layouts/eah-jena/css/';
 
 //
 // ---- tasks
