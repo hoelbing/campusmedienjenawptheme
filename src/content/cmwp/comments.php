@@ -1,82 +1,90 @@
 <?php
-	if (is_user_logged_in()) {
-		global $current_user;
-		$loggedIn = true;
-		get_currentuserinfo();
-	}
-	else {
-		$loggedIn = false;
-	}
+/**
+ * The template for displaying comments
+ *
+ * This is the template that displays the area of the page that contains both the current comments
+ * and the comment form.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage Twenty_Seventeen
+ * @since 1.0
+ * @version 1.0
+ */
+
+/*
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+ */
+if ( post_password_required() ) {
+	return;
+}
 ?>
 
-<section id="comments">
+<div id="comments" class="comments-area">
 
-	<section id="comments-new">
+	<?php
+	// You can start editing here -- including this comment!
+	if ( have_comments() ) :
+	?>
+		<h2 class="comments-title">
+			<?php
+			$comments_number = get_comments_number();
+			if ( '1' === $comments_number ) {
+				/* translators: %s: post title */
+				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ), get_the_title() );
+			} else {
+				printf(
+					/* translators: 1: number of comments, 2: post title */
+					_nx(
+						'%1$s Reply to &ldquo;%2$s&rdquo;',
+						'%1$s Replies to &ldquo;%2$s&rdquo;',
+						$comments_number,
+						'comments title',
+						'twentyseventeen'
+					),
+					number_format_i18n( $comments_number ),
+					get_the_title()
+				);
+			}
+			?>
+		</h2>
 
-		<aside class="">
-			<h3 id="respond">Sag was dazu!</h3>
-			<?php if(function_exists('get_twoclick_buttons')) {get_twoclick_buttons(get_the_ID());}?>
-		</aside>
+		<ol class="comment-list">
+			<?php
+				wp_list_comments(
+					array(
+						'avatar_size' => 100,
+						'style'       => 'ol',
+						'short_ping'  => true,
+						// 'reply_text'  => twentyseventeen_get_svg( array( 'icon' => 'mail-reply' ) ) . __( 'Reply', 'twentyseventeen' ),
+					)
+				);
+			?>
+		</ol>
 
-		<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="comments-form">
+		<?php
+		/*
+		the_comments_pagination(
+			array(
+				'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous', 'twentyseventeen' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
+			)
+		);
+*/
+	endif; // Check for have_comments().
 
-			 <?php if ( !$loggedIn ): ?>
-			<div class="form-group">
-				<div class="input-group">
-				  <span class="input-group-addon"><i class="fa fa-user"></i></span>
-				  <input type="text" name="author" id="author" class="form-control" value="<?php echo $comment_author; ?>" placeholder="Name" tabindex="1">
-				</div>
-			</div>
+	// If comments are closed and there are comments, let's leave a little note, shall we?
+	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+	?>
 
-			<div class="form-group">
-				<div class="input-group">
-				  <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-				  <input type="email" name="email" id="email" class="form-control" value="<?php echo $comment_author_email; ?>" placeholder="Email (wird nicht veröffentlicht)" tabindex="2">
-				</div>
-			</div>
+		<p class="no-comments"><?php _e( 'Comments are closed.', 'twentyseventeen' ); ?></p>
+	<?php
+	endif;
 
-			<?php endif; ?>
+	comment_form();
+	?>
 
-			<div class="form-group">
-				<textarea class="form-control" rows="5" id="comment" name="comment" tabindex="3" placeholder="Schreibe etwas<?php if ($loggedIn) { echo ', ' .  $current_user->display_name . ' '; } ?>..."></textarea>
-			</div>
-
-			<div class="form-group">
-				<div class="input-group">
-					<input id ="submit" name="submit" type="submit" class="btn btn-default" tabindex="4" value="Abschicken" />
-					<input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
-				</div>
-			</div>
-
-		   <?php do_action('comment_form', $post->ID); ?>
-
-		</form>
-
-	</section> <!-- /#comments-form -->
-
-
-
-	<section id="comments-list">
-		<?php foreach ($comments as $comment) : ?>
-
-		<aside class="media comment" id="comment-<?php comment_ID() ?>">
-			<a class="media-left" href="#">
-					<?php echo get_avatar(get_user_by( 'email', get_comment_author_email())->ID, 90); ?>
-			</a>
-
-			<div class="media-body">
-				<p class="media-heading comments-meta-name"><?php comment_author_link() ?></p>
-				<p class="comments-meta-date"><?php comment_date('j.m.Y') ?> | <?php comment_time('H:i') ?> Uhr</p>
-
-				<?php comment_text() ?>
-
-				<?php if ($comment->comment_approved == '0') : ?>
-				<strong>Achtung: Dein Kommentar muss erst noch freigegeben werden.</strong><br />
-				<?php endif; ?>
-			</div>
-		</aside>
-
-	   <?php endforeach; /* end for each comment */ ?>
-	</section><!-- /.comments-list -->
-
-</section>
+</div><!-- #comments -->

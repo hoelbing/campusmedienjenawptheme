@@ -23,3 +23,9 @@
     @include make-col(5);
   }
 }
+
+// Plugin: WP-Pagenavi
+.wp-pagenavi {
+  padding-top: $space-md;
+  margin-bottom: $space-md;
+}

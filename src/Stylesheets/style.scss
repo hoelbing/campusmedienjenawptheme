@@ -35,7 +35,9 @@ $templateFolderName:'cmwp';
 
 // Styles for Areas
 // @import 'Library/Areas/admin-wpbroadcast';
+@import 'Library/Areas/comments';
 @import 'Library/Areas/content-post';
+@import 'Library/Areas/content';
 @import 'Library/Areas/custom';
 @import 'Library/Areas/footer';
 @import 'Library/Areas/header';
@@ -46,6 +48,8 @@ $templateFolderName:'cmwp';
 @import 'Library/Areas/weeklyschedule';
 
 // Styles for Elements
+@import 'Library/Elements/audio';
 @import 'Library/Elements/plugin';
 @import 'Library/Elements/schreikasten';
 @import 'Library/Elements/socialbuttons';
+@import 'Library/Elements/video';

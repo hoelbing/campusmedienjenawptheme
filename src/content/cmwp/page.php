@@ -1,8 +1,8 @@
 <?php
 /**
  * The default template for displaying a page.
- * 
- * 
+ *
+ *
  */
 ?>
 
@@ -12,11 +12,11 @@
 		<div class="row">
 			<div class="content" id="global-main-content-full-width">
 				<div class="content-single">
-					<?php 
+					<?php
 						if (have_posts()) :
 							while (have_posts()) :
 								the_post();
-								get_template_part( 'content-page', 'page', get_post_format() );
+								get_template_part( 'template-parts/page/content-page', 'page', get_post_format() );
 							endwhile; else : ?>
 					<p>
 						<?php _e('Diese Seite gibt es nicht :('); ?>
@@ -30,4 +30,4 @@
 	</div>
 	<!-- /.container -->
 
-	<?php get_footer(); ?>
+	<?php get_footer();

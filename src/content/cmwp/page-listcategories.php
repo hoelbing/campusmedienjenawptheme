@@ -1,7 +1,7 @@
 <?php
 /**
  * The default template for displaying a page.
- Template Name: Kategorieliste
+ * Template Name: Kategorieliste
  */
 ?>
 <?php get_header(); ?>

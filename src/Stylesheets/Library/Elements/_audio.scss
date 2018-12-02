@@ -1,0 +1,24 @@
+// AUDIO PLAYER
+.mejs-container {
+  font-family: $font-family-sans-serif !important;
+  .mejs-controls {
+    .mejs-time {
+      color: $text-color !important;
+      span {
+        color: $text-color !important;
+      }
+    }
+    .mejs-time-rail {
+      .mejs-time-current {
+        background: $gray !important;
+      }
+    }
+  }
+}
+.mejs-container,
+.mejs-embed,
+.mejs-embed body,
+.mejs-container .mejs-controls {
+  background: $gray-lighter !important;
+  //@extend box-shadow($gray) !important;
+}

@@ -20,25 +20,36 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 <div class="container container-main">
 	<div class="row">
 		<div class="" id="global-main-content-full-width">
-		<div class="content content-single">
-					<?php 
-						if (have_posts()) :
-							while (have_posts()) :
+			<div class="content content-single">
+						<?php 
+
+							/* Start the Loop */
+							while ( have_posts() ) :
 								the_post();
-								get_template_part( 'content-single', 'single', get_post_format() );
-							endwhile; else : ?>
-					<p>
-						<?php _e('Diese Seite gibt es nicht :('); ?>
-					</p>
-					<?php endif; ?>
-				</div>
-			<!-- /.content -->
-		</div>
+
+								get_template_part( 'template-parts/post/content-single', get_post_format() );
+
+								// If comments are open or we have at least one comment, load up the comment template.
+								if ( comments_open() || get_comments_number() ) :
+									comments_template();
+								endif;
+/*
+								the_post_navigation(
+									array(
+										'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
+										'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
+									)
+								);
+*/
+							endwhile; // End of the loop.
+						?>
+					</div>
+				<!-- /.content -->
+			</div>
 		<!-- /.global-main-content -->
 
-		<?php comments_template( '', true ); ?>
 	</div>
 </div>
 <!-- /.container -->
 
-<?php get_footer(); ?>
+<?php get_footer();

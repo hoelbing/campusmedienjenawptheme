@@ -30,7 +30,7 @@
         @include make-col(4);
       }
     }
-    // 
+    //
     .footer-adress-akruetzel {
       @include media-breakpoint-up(xs) {
         @include make-col(12);

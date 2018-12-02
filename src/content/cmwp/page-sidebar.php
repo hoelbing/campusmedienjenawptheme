@@ -12,11 +12,11 @@
 		<div class="row">
 			<div id="global-main-content">
 				<div class="content">
-					<?php 
+					<?php
 						if (have_posts()) :
 							while (have_posts()) :
 								the_post();
-								get_template_part( 'content-page', 'page', get_post_format() );
+								get_template_part( 'template-parts/page/content-page', 'page', get_post_format() );
 							endwhile; else : ?>
 					<p>
 						<?php _e('Ups, da ging irgendwas nicht. Diese Seite gibt es nicht :('); ?>

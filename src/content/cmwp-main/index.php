@@ -16,11 +16,6 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 <div class="container container-main">
 	<div class="row">
 		<div class="" id="global-main-content">
-			<?php
-				if ($blog_id_origin == 5) {
-					get_template_part( 'template-parts/index/crj-webplayer', get_post_format() );
-				}
-			?>
 			<div class="content">
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'template-parts/post/content-index', get_post_format() ); ?>

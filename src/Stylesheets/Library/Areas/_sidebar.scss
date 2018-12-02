@@ -52,3 +52,27 @@
     }
   }
 }
+
+/* CATEGORY LIST */
+.category-list {
+  margin: 0 auto;
+  .category {
+    background: $gray-lighter;
+    padding: 0;
+    width: 190px;
+    margin-bottom: $space-md;
+    img {
+      width: 190px;
+    }
+    .category-meta {
+      padding: $space-md;
+      .category-name {
+        font-size: $font-size-large;
+        font-weight: bold;
+        margin: $space-sm 0 0;
+      }
+
+      // .category-description { }
+    }
+  }
+}
