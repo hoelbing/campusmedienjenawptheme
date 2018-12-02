@@ -1,0 +1,51 @@
+/*
+Theme Name: CampusmedienJenaWP
+Theme Description: A responsive theme for Campusmedien Jena.
+Author: Carsten Hoelbing
+URI: https://www.campusmedien-jena.de/
+Version: 3.1
+Tags: campusmedien, jena, responsive, Bootstrap 4
+*/
+$templateFolderName:'cmwp';
+
+//
+//
+// Load configuration variables, Bootstrap styles, and core styles.
+//
+//
+
+// application configuration variables
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+// application configuration variables
+@import 'Library/Variables/color';
+@import 'Library/Variables/default';
+@import 'Library/Variables/typography';
+
+// @import 'Library/Variables/footer';
+
+// Mixins
+@import 'Library/Mixins/mixins.scss';
+
+// Scss-Imports
+@import 'Library/bootstrap.scss';
+@import 'Library/fontawesome.scss';
+@import 'Library/sourcesanspro.scss';
+
+// Styles for Areas
+// @import 'Library/Areas/admin-wpbroadcast';
+@import 'Library/Areas/content-post';
+@import 'Library/Areas/custom';
+@import 'Library/Areas/footer';
+@import 'Library/Areas/header';
+@import 'Library/Areas/nav';
+@import 'Library/Areas/page';
+@import 'Library/Areas/sidebar';
+@import 'Library/Areas/utilities';
+@import 'Library/Areas/weeklyschedule';
+
+// Styles for Elements
+@import 'Library/Elements/plugin';
+@import 'Library/Elements/schreikasten';
+@import 'Library/Elements/socialbuttons';

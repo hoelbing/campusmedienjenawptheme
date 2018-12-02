@@ -1,0 +1,51 @@
+//
+// == COLORS */
+//
+
+$white:                             #fff;
+$black:                             #000;
+$campusmediencolour:                #ff8c00;
+$campusradiogelb:                   #eec43f;
+$campustvrot:                       #d44e2c;
+$akruetzelblau:                     #09607e;
+$light-blue:                        #f0f2f3;
+
+$gray-darker:                       lighten(#000, 13.5%);
+$gray-dark:                         lighten(#000, 20%);
+$gray:                              lighten(#000, 33.5%);
+$gray-light:                        lighten(#000, 80%);
+$gray-lighter:                      lighten(#000, 90%);
+
+
+
+$bg-gray-bright:                    #fff;
+$bg-gray-dark:                      #e5e5e5;
+
+//
+// == BOOTSTRAP VARIABLES
+//
+
+$brand-primary:                     $gray;
+$body-bg:                           $light-blue;
+$text-color:                        $gray;
+
+// == Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:                           $light-blue;
+//** Global text color on `<body>`.
+$text-color:                        $gray-darker;
+
+//** Global textual link color.
+$link-color:                        $text-color;
+//** Link hover color set via `darken()` function.
+$link-hover-color:                  darken($link-color, 15%);
+//** Link hover decoration.
+$link-hover-decoration:             none;
+
+/* Navbar */
+$navbar-default-color:             #777;
+$navbar-default-bg:                $white; //$light-blue;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%);

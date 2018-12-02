@@ -1,28 +1,9 @@
-/*
-Theme Name: CampusmedienJenaWP
-Theme Description: A responsive theme for Campusmedien Jena.
-Author: Carsten Hoelbing
-URI: https://www.campusmedien-jena.de/
-Version: 3
-Tags: campusmedien, jena, responsive, clean, multimedia, white, light, Bootstrap 4
-*/
-$templateFolderName:'cmwp';
-
-/**
- *
- * Load configuration variables, Bootstrap styles, and core styles.
- *
- */
-
+/*! Bootstrap v4.x | MIT License | http://getbootstrap.com */
 // bootstrap variables and mixins
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 
-// application configuration variables
-@import 'variables';
-
-/*! Bootstrap v4.x | MIT License | http://getbootstrap.com */
 @import "../../node_modules/bootstrap/scss/root";
 @import "../../node_modules/bootstrap/scss/print";
 @import "../../node_modules/bootstrap/scss/reboot";
@@ -57,31 +38,3 @@ $templateFolderName:'cmwp';
 
 // Utility classes
 @import "../../node_modules/bootstrap/scss/utilities";
-
-/*! font awesome icons | (OFL-1.1 AND MIT) | ? */
-// path to the fa-fonts
-$fa-font-path: '/wp-content/themes/#{$templateFolderName}/assets/font-awesome/fonts';
-// import lib
-@import '../../node_modules/font-awesome/scss/font-awesome';
-
-/*! Source Sans Pro | (OFL-1.1) | ? */
-$FontPathSourceSansPro: '/wp-content/themes/#{$templateFolderName}/assets/source-sans-pro/fonts';
-// import lib
-@import '../../node_modules/npm-font-source-sans-pro/source-sans-pro.scss';
-
-//
-// my sass
-//
-
-@import 'content-post';
-@import 'custom';
-@import 'footer';
-@import 'header';
-@import 'nav';
-@import 'schreikasten';
-@import 'sidebar';
-@import 'page';
-@import 'plugin';
-@import 'socialbuttons';
-@import 'weeklyschedule';
-@import 'utilities';

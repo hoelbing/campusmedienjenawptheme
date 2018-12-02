@@ -5,8 +5,8 @@ var sourcemaps = require('gulp-sourcemaps');
 
 
 // Input - Files / Folder
-var inputStyle = './src/sass/style.scss';
-var inputdoc = './src/sass/**/*.scss';
+var inputStyle = './src/Stylesheets/style.scss';
+var inputdoc = './src/Stylesheets/**/*.scss';
 
 // Output - Folder
 var outputStyle = './build/cmwp/';
