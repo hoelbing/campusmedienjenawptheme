@@ -71,7 +71,7 @@
 			<div class="meta-comments">
 				<span>
 					<a href="#comments">
-						<?php comments_number( '0 Kommentare', '1 Kommentar', '% Kommentare' ); ?>
+						<?php comments_number( '<i class="fa fa-comment-o"></i> 0', '<i class="fa fa-comment-o"></i> 1', '<i class="fa fa-comment-o"></i> %' ); ?>
 					</a>
 				</span>
 			</div>
