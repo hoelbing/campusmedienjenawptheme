@@ -1,5 +1,5 @@
 <?php
-    get_template_part( 'template-parts/footer/footer-tv', 'widgets' );
+    get_template_part( 'template-parts/footer/footer-radio', 'widgets' );
 ?>
 
 	<?php wp_footer(); ?>

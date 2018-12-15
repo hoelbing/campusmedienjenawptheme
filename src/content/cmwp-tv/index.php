@@ -1,10 +1,10 @@
-<?php 
+<?php
 /**
  * Diese PHP-Seite wird auf der Startseite aufgerufen
  *
  */
 
-get_header(); 
+get_header();
 
 $blog_id_origin = (get_post_meta(get_the_ID(), 'origin_blog_id', true));
 $blog_url = get_blog_details($blog_id_origin) -> siteurl;
@@ -20,7 +20,7 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 			<div class="content">
 
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content-index', get_post_format() ); ?>
+					<?php get_template_part( 'template-parts/post/content-index', get_post_format() ); ?>
 					<?php endwhile; else: ?>
   					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
  					<?php endif; ?>
