@@ -9,30 +9,27 @@
 
 get_header();
 
-$blog_id_origin = (get_post_meta(get_the_ID(), 'origin_blog_id', true));
-$blog_url = get_blog_details($blog_id_origin) -> siteurl;
-$blog_name = get_blog_details($blog_id_origin) -> blogname;
-//	$shortnames = array('1' => 'Campusmedien', '6' => 'Campusradio', '3' => 'Akrützel', '4' => 'Campustv');
-$shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrützel', '4' => 'Campus.tv');
+// $blog_id_origin = (get_post_meta(get_the_ID(), 'origin_blog_id', true));
+// $blog_url = get_blog_details($blog_id_origin) -> siteurl;
+// $blog_name = get_blog_details($blog_id_origin) -> blogname;
+// $shortnames = array('1' => 'Campusmedien', '6' => 'Campusradio', '3' => 'Akrützel', '4' => 'Campustv');
+// $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrützel', '4' => 'Campus.tv');
 
 ?>
 
 <div class="container container-main">
 	<div class="row">
-		<div class="" id="global-main-content-full-width">
-			<div class="content content-single">
-						<?php 
-
-							/* Start the Loop */
-							while ( have_posts() ) :
-								the_post();
-
-								get_template_part( 'template-parts/post/content-single', get_post_format() );
-
+		<div class="" id="global-main-content">
+			<div class="content">
+          <?php
+          if ( have_posts() ) {
+            while ( have_posts() ) {
+              the_post();
+              get_template_part( 'partials/post/loop', 'single', get_post_format() );
 								// If comments are open or we have at least one comment, load up the comment template.
-								if ( comments_open() || get_comments_number() ) :
+								if ( comments_open() || get_comments_number() ) {
 									comments_template();
-								endif;
+                }
 /*
 								the_post_navigation(
 									array(
@@ -41,14 +38,22 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 									)
 								);
 */
-							endwhile; // End of the loop.
-						?>
-					</div>
-				<!-- /.content -->
+            }
+          } else {
+            echo '<p>';
+            _e('Sorry, no posts matched your criteria.');
+            echo '</p>';
+          }
+          ?>
 			</div>
-		<!-- /.global-main-content -->
+      <!-- /.content -->
 
+		</div>
+		<!-- /.global-main-content -->
+			<?php get_sidebar(); ?>
+		<!-- /.global-sidebar -->
 	</div>
+	<!-- /.row -->
 </div>
 <!-- /.container -->
 

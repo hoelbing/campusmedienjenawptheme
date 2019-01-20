@@ -16,7 +16,7 @@
 						if (have_posts()) :
 							while (have_posts()) :
 								the_post();
-								get_template_part( 'template-parts/page/content-page', 'page', get_post_format() );
+								get_template_part( 'partials/page/content', 'page', get_post_format() );
 							endwhile; else : ?>
 					<p>
 						<?php _e('Diese Seite gibt es nicht :('); ?>

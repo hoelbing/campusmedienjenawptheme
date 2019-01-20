@@ -182,7 +182,7 @@ function insert_socialmedia_in_head() {
   }
   echo "\n";
 }
-add_action('wp_head', 'insert_socialmedia_in_head');
+// add_action('wp_head', 'insert_socialmedia_in_head');
 
 /* Responsive Wrapper für Embeds */
 add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
@@ -295,7 +295,7 @@ function cmwp_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Allgemeine Sidebar', 'cmwp' ),
 		'id'            => 'general_sidebar',
-		'description'   => __( 'Der Standard Sidebar für Widgets', 'cmwp' ),
+		'description'   => __( 'Die Standard Sidebar für die Widgets', 'cmwp' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -313,6 +313,7 @@ add_action( 'widgets_init', 'cmwp_widgets_init' );
 add_theme_support( 'post-thumbnails' );
 
 /* Thumbnail Größen */
+/*
 add_image_size('split-screen-thumbnail', 130, 130, array( 'center', 'center' ));
 add_image_size('default_max-thumbnail', 667, 400);
 add_image_size('widget-thumbnail', 150, 150, array( 'center', 'center' ));
@@ -326,6 +327,7 @@ add_image_size('full-width-heigh-700-thumbnail', 1200, 700, false);
 
 add_image_size('cinema-thumbnail', 380);
 add_image_size('ausgabe-thumbnail', 200, 280, array( 'center', 'center' ));
+*/
 
 /* fuege dem Beitragsbild mehr Optionen hinzu  */
 function add_featured_image_display_settings( $content, $post_id ) {

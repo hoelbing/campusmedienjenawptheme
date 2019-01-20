@@ -8,8 +8,8 @@
     @include make-col(12);
   }
 
-  @include media-breakpoint-up(sm) {
-    padding-left: $space-sm;
+  @include media-breakpoint-up(lg) {
+    padding-left: $space-md;
 
     @include make-col(9);
   }

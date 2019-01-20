@@ -14,14 +14,13 @@ get_header();
 	<div class="row">
 		<div class="" id="global-main-content-full-width">
 			<div class="content content-ausgabe">
-						<?php 
+						<?php
 
 							/* Start the Loop */
 							while ( have_posts() ) :
 								the_post();
 
-								// get_template_part( 'template-parts/post/content-single', get_post_format() );
-								get_template_part( 'template-parts/post/content', 'ausgabe', get_post_format() );
+								get_template_part( 'partials/post/loop', 'ausgabe', get_post_format() );
 								// If comments are open or we have at least one comment, load up the comment template.
 								if ( comments_open() || get_comments_number() ) :
 									comments_template();

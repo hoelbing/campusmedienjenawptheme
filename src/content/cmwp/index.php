@@ -7,33 +7,40 @@
 get_header();
 
 $blog_id_origin = get_post_meta(get_the_ID(), 'origin_blog_id', true);
-$blog_url = get_blog_details($blog_id_origin) -> siteurl;
-$blog_name = get_blog_details($blog_id_origin) -> blogname;
-$shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrützel', '4' => 'Campus.tv');
+// $blog_url = get_blog_details($blog_id_origin) -> siteurl;
+// $blog_name = get_blog_details($blog_id_origin) -> blogname;
+// $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrützel', '4' => 'Campus.tv');
 
 ?>
 
 <div class="container container-main">
 	<div class="row">
 		<div class="" id="global-main-content">
-			<?php
+      <?php
+        // beim campusradio (blog_id_origin == 5) wird ein extra post als erster eingefuegt
 				if ($blog_id_origin == 5) {
-					get_template_part( 'template-parts/index/crj-webplayer', get_post_format() );
+					get_template_part( 'partials/index/crj-webplayer', get_post_format() );
 				}
 			?>
 			<div class="content">
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/post/content-index', get_post_format() ); ?>
-					<?php endwhile; else: ?>
-  					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
- 					<?php endif; ?>
+          <?php
+          if ( have_posts() ) {
+            while ( have_posts() ) {
+              the_post();
+              get_template_part( 'partials/post/loop', 'index', get_post_format() );
+            }
+          } else {
+            echo '<p>';
+            _e('Sorry, no posts matched your criteria.');
+            echo '</p>';
+          }
+          ?>
 			</div>
-			<!-- /.content -->
+      <!-- /.content -->
 
 			<?php
 			//das WP Plugin 'wp_pagenavi' einfuegen (Seitennavigation)
-			if (function_exists('wp_pagenavi'))
-			{
+			if (function_exists('wp_pagenavi')) {
 							echo '<div id="pagenavi" class="col-xs-12">';
 							wp_pagenavi();
 							echo '</div><!-- END pagenavi-->';

@@ -10,13 +10,6 @@
 
 		<article class="post blog-<?php echo $blog_id_origin ?>">
 
-			<a class="blog-logo blog-<?php echo $blog_id_origin ?>" href="<?php echo $blog_url ?>">
-	<!--			<img src="<?php echo bloginfo('template_directory'); ?>/img/logo_icon/logo_blog_<?php echo $blog_id_origin; ?>.png" alt=""/>-->
-				<?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
-					<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
-				<?php endif; ?>
-			</a>
-
 			<section class="post-top">
 				<section class="post-content">
 							<div class="border-bottom-grey">

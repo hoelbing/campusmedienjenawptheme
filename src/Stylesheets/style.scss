@@ -34,7 +34,7 @@ $templateFolderName:'cmwp';
 @import 'Library/sourcesanspro.scss';
 
 // Styles for Areas
-// @import 'Library/Areas/admin-wpbroadcast';
+@import 'Library/Areas/article';
 @import 'Library/Areas/comments';
 @import 'Library/Areas/content-post';
 @import 'Library/Areas/content';
@@ -45,7 +45,6 @@ $templateFolderName:'cmwp';
 @import 'Library/Areas/page';
 @import 'Library/Areas/sidebar';
 @import 'Library/Areas/utilities';
-@import 'Library/Areas/weeklyschedule';
 
 // Styles for Elements
 @import 'Library/Elements/audio';
@@ -53,3 +52,7 @@ $templateFolderName:'cmwp';
 @import 'Library/Elements/schreikasten';
 @import 'Library/Elements/socialbuttons';
 @import 'Library/Elements/video';
+
+// adjust: plugins
+@import 'Library/Plugins/plugins.scss';
+@import 'Library/Areas/weeklyschedule';

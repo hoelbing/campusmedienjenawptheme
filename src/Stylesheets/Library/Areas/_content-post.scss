@@ -104,7 +104,7 @@
   }
   .post-top {
     background: $white !important;
-    border: 1px solid $gray-lighter !important;
+    // border: 1px solid $gray-lighter !important;
     padding: $space-md;
 
     @include make-row();
@@ -228,13 +228,15 @@
       }
     }
   }
+  /*
   .meta {
     height: $space-lg;
     //display: table;
-    border-right: 1px solid $gray-lighter;
-    border-left: 1px solid $gray-lighter;
-    border-bottom: 1px solid $gray-lighter;
+    // border-right: 1px solid $gray-lighter;
+    // border-left: 1px solid $gray-lighter;
+    // border-bottom: 1px solid $gray-lighter;
     margin-bottom: 3px;
+    padding: 14px;
 
     @include make-row();
     .meta-author,
@@ -270,6 +272,7 @@
     }
     .meta-author,
     .meta-date {
+      text-align: left;
       // xs
       @include media-breakpoint-up(xs) {
         @include make-col(6);
@@ -294,4 +297,5 @@
       overflow: hidden;
     }
   }
+  */
 }

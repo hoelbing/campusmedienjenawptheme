@@ -20,7 +20,7 @@ $shortnames = array('6' => 'Campusmedien', '5' => 'Campusradio', '2' => 'Akrütz
 			<div class="content">
 
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/post/content-index', get_post_format() ); ?>
+					<?php get_template_part( 'partials/post/content-index', get_post_format() ); ?>
 					<?php endwhile; else: ?>
   					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
  					<?php endif; ?>

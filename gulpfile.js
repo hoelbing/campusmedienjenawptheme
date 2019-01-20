@@ -18,5 +18,5 @@ gulp.task('watch', function () {
 // final step
 // gulp.task - 'build'
 gulp.task('build', ['clean:build'], function () {
-  gulp.start(['copy', 'styles', 'sassdoc']); // starts only after 'lint-css' and 'clean:build'
+  gulp.start(['copy', 'styles']); // starts only after 'lint-css' and 'clean:build'
 });

@@ -1,7 +1,7 @@
 <?php
 /**
  * Seite ohne header und ohne footer
- * Template Name: Page mit Sidebar
+ * Template Name: Seite mit Sidebar
  *
  */
 ?>
@@ -16,7 +16,7 @@
 						if (have_posts()) :
 							while (have_posts()) :
 								the_post();
-								get_template_part( 'template-parts/page/content-page', 'page', get_post_format() );
+								get_template_part( 'partials/page/loop', 'page', get_post_format() );
 							endwhile; else : ?>
 					<p>
 						<?php _e('Ups, da ging irgendwas nicht. Diese Seite gibt es nicht :('); ?>
