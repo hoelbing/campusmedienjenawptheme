@@ -14,17 +14,16 @@ get_header();
 	<div class="row">
 		<div class="" id="global-main-content-full-width">
 			<div class="content content-ausgabe">
-						<?php
+        <?php
+          if ( have_posts() ) {
+            while ( have_posts() ) {
+              the_post();
+              get_template_part( 'partials/post/loop', 'ausgabe', get_post_format() );
 
-							/* Start the Loop */
-							while ( have_posts() ) :
-								the_post();
-
-								get_template_part( 'partials/post/loop', 'ausgabe', get_post_format() );
-								// If comments are open or we have at least one comment, load up the comment template.
-								if ( comments_open() || get_comments_number() ) :
-									comments_template();
-								endif;
+              // If comments are open or we have at least one comment, load up the comment template.
+              if ( comments_open() || get_comments_number() ) {
+                comments_template();
+              }
 /*
 								the_post_navigation(
 									array(
@@ -33,11 +32,16 @@ get_header();
 									)
 								);
 */
-							endwhile; // End of the loop.
-						?>
-					</div>
-				<!-- /.content -->
-			</div>
+            }
+          } else {
+            echo '<p>';
+            _e('Sorry, no posts matched your criteria.');
+            echo '</p>';
+          }
+        ?>
+      </div>
+			<!-- /.content -->
+		</div>
 		<!-- /.global-main-content -->
 
 	</div>

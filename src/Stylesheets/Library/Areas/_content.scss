@@ -2,7 +2,6 @@
 #global-main-content {
   padding-top: $space-md;
   padding-bottom: $space-md;
-
   // xs
   @include media-breakpoint-up(xs) {
     @include make-col(12);

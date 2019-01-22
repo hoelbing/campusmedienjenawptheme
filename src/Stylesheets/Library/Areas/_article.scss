@@ -72,8 +72,83 @@
     }
   }
 }
+.article-ausgabe {
+  border-bottom: 1px solid $gray-lighter;
+  padding-bottom: 1rem;
+  .article-area {
+    padding: 1rem;
+    .article-area-thumbnail {
+      text-align: center;
+      //
+      @include media-breakpoint-up(xs) {
+        padding: 1rem;
+        //
+        @include make-col(12);
+      }
+      //
+      @include media-breakpoint-up(md) {
+        padding: 0;
+        //
+        @include make-col(4);
+      }
+    }
+    .article-area-content {
+      @include media-breakpoint-up(xs) {
+        padding: 1rem;
+        //
+        @include make-col(12);
+      }
+      //
+      @include media-breakpoint-up(md) {
+        padding: 0;
+        //
+        @include make-col(8);
+      }
+      .article-header {
+        .article-title {
+          font-size: 1.6rem;
+          font-weight: 600;
+          a {
+            text-transform: uppercase;
+            text-decoration: none;
+            &:hover,
+            &:focus {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      .article-content {
+        //
+      }
+      .article-meta {
+        padding-top: 1rem;
+        // color: $gray-light;
+        font-size: $font-size-tiny;
+        .article-tags {
+          font-size: $font-size-tiny;
+          padding-top: $space-sm;
+          // color: $gray-light;
+          a {
+            // color: $gray-light;
+          }
+        }
+        .goToArticleComments {
+          // color: $gray-light;
+        }
+        .meta-date {
+          padding-right: 0.4rem;
+        }
+        .meta-comments {
+          padding-right: 0.4rem;
+        }
+      }
+    }
+  }
+}
 .article-single {
-  background: $white !important;
+  // background: $white !important;
+  padding: 1rem;
   .article-header {
     .article-meta {
       font-size: 0.8rem;
@@ -98,6 +173,7 @@
     .article-title {
       font-size: 2rem;
       font-weight: 700;
+      padding: 1rem 0;
     }
   }
   .article-content {
@@ -107,5 +183,9 @@
     .post-tags {
       //
     }
+  }
+  .goToHome {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }

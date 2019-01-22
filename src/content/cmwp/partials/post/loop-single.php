@@ -5,6 +5,7 @@
  // $hasVideo = function_exists ( 'has_post_video' ) && has_post_video ();
  // $cinemaHeader = $single_size_thumbnail = get_post_meta ( get_the_ID (), 'single_size_thumbnail', true );
  // $copyrightImage = get_post_meta ( get_the_ID (), 'copyright_image', true );
+ $blog_id_origin = get_post_meta(get_the_ID(), 'origin_blog_id', true);
  $columnClassForContent = "post-content";
 ?>
 
@@ -50,5 +51,9 @@
       ?>
 		</footer>
 
-	</article><!-- /.post-->
+    <div class="goToHome">
+      <a class="btn btn-primary" href="/">zur Startseite</a>
+    </div>
+
+  </article><!-- /.post-->
 </section><!-- /.main-->

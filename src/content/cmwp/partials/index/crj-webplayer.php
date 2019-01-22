@@ -8,10 +8,10 @@
 	<!-- player symbol anzeigen -->
 	<section class="main timeline hidden-xs">
 
-		<article class="post blog-<?php echo $blog_id_origin ?>">
+		<article class="post article article-index-crj blog-<?php echo $blog_id_origin ?>">
 
-			<section class="post-top">
-				<section class="post-content">
+			<section class="article-area-content">
+				<section class="article-content">
 							<div class="border-bottom-grey">
 								<a href="<?php home_url(); ?>/interaktiv/webplayer/">
 									<img
