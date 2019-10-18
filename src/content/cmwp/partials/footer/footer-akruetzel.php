@@ -21,15 +21,15 @@
 						<li>
 							<div class="tel">
 								<i class="fa fa-phone" aria-hidden="true"> </i>
-								<a href="tel:+493641930991"> +49 (0)3641 9-30991</a>
+								<a href="tel:+4936419400975"> +49 (0)3641 9-400 975</a>
 							</div>
 						</li>
-						<li>
+<!--						<li>
 							<div class="fax">
 								<i class="fa fa-fax" aria-hidden="true"></i> </i>
 								<a href="tel:+493641930997"> +49 (0)3641 9-30997 (Fax)</a>
 							</div>
-						</li>
+						</li> -->
 						<li>
 							<div class="email">
 								<i class="fa fa-envelope-o" aria-hidden="true"> </i>
