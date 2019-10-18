@@ -4,17 +4,6 @@
 <header class="bg-light">
   <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
       <div class="container">
-          <button
-              class="navbar-toggler navbar-toggler-left"
-              type="button"
-              data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-12"
-              aria-controls="bs-example-navbar-collapse-12"
-              aria-expanded="false"
-              aria-label="Toggle navigation" >
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- Brand and toggle get grouped for better mobile display -->
           <a class="navbar-brand" href="<?php echo site_url(); ?>">
               <?php if (get_theme_mod( 'themeslug_logo' )) : ?>
               <img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display ' ) ); ?>' width="25" height="25">
@@ -27,7 +16,18 @@
               </div>
               <?php endif; ?>
           </a>
-          <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+          <button
+              class="navbar-toggler navbar-toggler-left"
+              type="button"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-12"
+              aria-controls="bs-example-navbar-collapse-12"
+              aria-expanded="false"
+              aria-label="Toggle navigation" >
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-11"> -->
               <?php
               wp_nav_menu( array(
                   'theme_location'    => 'primary-menu',
@@ -40,7 +40,6 @@
                   'walker'            => new WP_Bootstrap_Navwalker())
               );
               ?>
-          <!-- </div> -->
           <form action="<?php echo home_url('/'); ?>" method="get" class="form-inline search-form my-2 my-lg-0">
               <input
                   type="search"
@@ -55,6 +54,7 @@
                   <i class="fa fa-search-plus" aria-hidden="true"></i>
               </button>
           </form>
+          <!-- </div> -->
       </div>
   </nav>
 </header>
